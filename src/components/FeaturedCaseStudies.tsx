@@ -50,7 +50,7 @@ const FeaturedCaseStudies = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">My Work</h2>
           <div className="w-16 h-1 bg-orange-500 rounded-full mb-5" />
           <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
-            Explore how research, strategy, and human-centered design solved three very different kinds of complex problems&mdash;from organizational transformation and product strategy to developing future UX professionals.
+            Explore how research, strategy, and human-centered design solved three very different complex problems&mdash;from organizational transformation and product strategy to developing future UX professionals.
           </p>
         </div>
 
