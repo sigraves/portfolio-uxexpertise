@@ -24,9 +24,9 @@ const Hero = () => {
             </h1>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-xl">
-              For more than 10+ years, I've helped government organizations, educators, and
+              With 10+ years of experience, I've helped government organizations, educators, and
               multidisciplinary teams understand complex problems and turn research into
-              meaningful action — combining UX research, experience strategy, customer
+              meaningful action—combining UX research, experience strategy, customer
               experience, and Human-Centered AI.
             </p>
 
