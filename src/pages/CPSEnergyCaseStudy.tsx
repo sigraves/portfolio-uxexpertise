@@ -11,37 +11,37 @@ const frameworks = [
     id: 'question',
     title: 'Ask the Right Question',
     description: 'Define the problem before designing the solution.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/energy-01-the-clients-question.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/energy-01-the-clients-question.png',
   },
   {
     id: 'people',
     title: 'Understand People',
     description: 'Research reveals motivations, behaviors, and unmet needs.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/energy-02-inside-the-customers-mind.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/energy-02-inside-the-customers-mind.png',
   },
   {
     id: 'opportunities',
     title: 'Discover Opportunities',
     description: 'Identify the moments where experience can influence behavior.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/energy-03-moments-that-matter2.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/energy-03-moments-that-matter2.png',
   },
   {
     id: 'decisions',
     title: 'Make Strategic Decisions',
     description: 'Prioritize what creates the greatest customer and business value.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/energy-04-choosing-what-matters.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/energy-04-choosing-what-matters.png',
   },
   {
     id: 'purpose',
     title: 'Design with Purpose',
     description: 'Transform research into thoughtful, validated experiences.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/energy-05-from-ideas-to-interface.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/energy-05-from-ideas-to-interface.png',
   },
   {
     id: 'impact',
     title: 'Measure Meaningful Impact',
     description: 'Connect research, design decisions, customer behavior, and business value.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/energy-06-from-insight-to-impact2.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/energy-06-from-insight-to-impact2.png',
   },
 ];
 
@@ -63,7 +63,7 @@ const CPSEnergyCaseStudy = () => {
       <section
         id="cps-main"
         className="relative min-h-[600px] flex items-center bg-cover"
-        style={{ backgroundImage: "url('https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/Energy-bg.png')", backgroundPosition: 'center right' }}
+        style={{ backgroundImage: "url('https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/Energy-bg.png')", backgroundPosition: 'center right' }}
         tabIndex={-1}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />

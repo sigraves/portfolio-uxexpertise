@@ -12,42 +12,42 @@ const frameworks = [
     title: 'Developing UX Thinkers\u2122',
     description:
       'Great UX begins with curiosity and empathy. Before students learned wireframes or prototypes, they learned how to observe, listen, analyze, and understand the people behind every problem before recommending solutions.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/1-UTSA-thinkers.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/1-UTSA-thinkers.png',
   },
   {
     id: 'confidence',
     title: 'Building UX Confidence\u2122',
     description:
       'Many students believed confidence came from having all the answers. I taught the opposite. Confidence grows by talking to users, conducting interviews, listening with empathy, and allowing real conversations to shape better decisions.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/2-UTSA-confidence.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/2-UTSA-confidence.png',
   },
   {
     id: 'screens',
     title: 'Beyond the Screen\u2122',
     description:
       'Beautiful interfaces attract attention, but meaningful experiences solve problems. I challenged students to think beyond aesthetics and design solutions that are useful, accessible, research-driven, and measurable.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/3-UTSA-screens2.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/3-UTSA-screens2.png',
   },
   {
     id: 'philosophy',
     title: 'My Classroom Philosophy\u2122',
     description:
       'The classroom should be a place where curiosity is encouraged, questions are welcomed, and mistakes become opportunities to learn. My goal was to create confident professionals\u2014not simply teach design tools.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/4-UTSA-philosophy.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/4-UTSA-philosophy.png',
   },
   {
     id: 'career',
     title: 'From Curiosity to Career\u2122',
     description:
       'Every student begins with potential. My role was to help them develop the mindset, practical skills, confidence, and communication abilities needed to transition from the classroom into professional UX careers.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/5-UTSA-career2.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/5-UTSA-career2.png',
   },
   {
     id: 'insights',
     title: 'Student Insights\u2122',
     description:
       'Teaching dozens of aspiring UX professionals reinforced an important lesson: success doesn\u2019t come from memorizing UX methods\u2014it comes from developing curiosity, confidence, and a genuine desire to understand people. One of the most rewarding moments was watching students discover that conducting user interviews and usability testing became their favorite part of the design process.',
-    image: 'https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/6-UTSA-insights.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/6-UTSA-insights.png',
   },
 ];
 
@@ -69,7 +69,7 @@ const UTSACaseStudy = () => {
       <section
         id="utsa-main"
         className="relative min-h-[600px] flex items-center bg-cover"
-        style={{ backgroundImage: "url('https://github.com/sigraves/portfolio-uxexpertise/raw/main/images/UTSA-herobackground.png')", backgroundPosition: 'center right' }}
+        style={{ backgroundImage: "url('https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/UTSA-herobackground.png')", backgroundPosition: 'center right' }}
         tabIndex={-1}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
