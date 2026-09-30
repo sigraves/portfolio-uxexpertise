@@ -12,42 +12,42 @@ const frameworks = [
     title: 'The Influential Journey\u2122',
     description:
       'Every experience teaches us something, but meaningful growth comes from solving increasingly complex problems. This journey illustrates how my focus evolved from understanding individual experiences to influencing organizational strategy.',
-    image: '/images/1-WarU_The_Journey.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/1-WarU_The_Journey.png',
   },
   {
     id: 'compass',
     title: 'The Research Compass\u2122',
     description:
       'Research is more than collecting information\u2014it\u2019s about asking better questions. The Research Compass\u2122 represents the mindset I use to uncover meaningful insights, balance business and user needs, and support informed decision-making.',
-    image: '/images/2-WarU_ResearchCompass.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/2-WarU_ResearchCompass.png',
   },
   {
     id: 'sixsteps',
     title: 'The 6-Step Approach\u2122',
     description:
       'Every project follows a repeatable approach grounded in research, collaboration, testing, and continuous learning. This framework illustrates how I move from discovery to measurable outcomes while keeping people at the center of every decision.',
-    image: '/images/3-WarU_6Steps.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/3-WarU_6Steps.png',
   },
   {
     id: 'everyone',
     title: 'Designing for Everyone\u2122',
     description:
       'Great experiences happen when every perspective is understood. This framework reflects how I identify goals, frustrations, motivations, and opportunities across the people impacted by a solution before recommending change.',
-    image: '/images/4-WarU_Designing4Everyone.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/4-WarU_Designing4Everyone.png',
   },
   {
     id: 'clarity',
     title: 'Complexity to Clarity\u2122',
     description:
       'Sometimes the most valuable discovery isn\u2019t improving a product\u2014it\u2019s uncovering the real organizational challenge. This framework demonstrates how deeper research transformed isolated improvements into scalable systems, shared knowledge, and evidence-based decision making.',
-    image: '/images/5-WarU_ComplexityClarity.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/5-WarU_ComplexityClarity.png',
   },
   {
     id: 'business',
     title: 'Business Needs vs. User Needs\u2122',
     description:
       'Successful experiences are created where business objectives and user needs intersect. This framework helps align research, testing, and recommendations with measurable outcomes that benefit both organizations and the people they serve.',
-    image: '/images/6-WarU_BusinessvsUsers.png',
+    image: 'https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/6-WarU_BusinessvsUsers.png',
   },
 ];
 
@@ -69,7 +69,7 @@ const WarUCaseStudy = () => {
       <section
         id="waru-main"
         className="relative min-h-[600px] flex items-center bg-cover bg-center-right"
-        style={{ backgroundImage: "url('/images/WarU-bg.png')", backgroundPosition: 'center right' }}
+        style={{ backgroundImage: "url('https://github.com/sigraves/portfolio-uxexpertise/blob/main/images/WarU-bg.png')", backgroundPosition: 'center right' }}
         tabIndex={-1}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
