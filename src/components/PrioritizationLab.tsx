@@ -128,8 +128,21 @@ const PrioritizationLab = () => {
   const [showReasoning, setShowReasoning] = useState(false);
   const [draggedId, setDraggedId] = useState<string | null>(null);
   const [touchPlacing, setTouchPlacing] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const allPlaced = placements.length === findings.length;
+
+  const toggleOpen = useCallback(() => setIsOpen((prev) => !prev), []);
+
+  const handleHeaderKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleOpen();
+      }
+    },
+    [toggleOpen]
+  );
 
   const handleDragStart = useCallback((e: React.DragEvent, findingId: string) => {
     setDraggedId(findingId);
@@ -222,17 +235,37 @@ const PrioritizationLab = () => {
 
   return (
     <section id="prioritization-lab" className="py-16 px-4 sm:px-6 max-w-5xl mx-auto border-t border-teal-900/10">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
+      {/* Accordion header — always visible */}
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={toggleOpen}
+        onKeyDown={handleHeaderKeyDown}
+        aria-expanded={isOpen}
+        aria-controls="prioritization-lab-content"
+        className="flex items-center gap-3 cursor-pointer select-none rounded-xl p-3 -ml-3 transition-colors hover:bg-teal-500/5 focus:bg-teal-500/5"
+      >
+        <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center flex-shrink-0">
           <FourQuadrant size={20} />
         </div>
-        <h2 className="text-2xl font-bold text-gray-900">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex-1">
           The Prioritization Lab
-          <span className="text-teal-600 text-base align-top">™</span>
+          <span className="text-teal-600 text-sm sm:text-base align-top">™</span>
+          <span className="text-gray-400 font-medium text-base sm:text-lg"> — Experience the Trade-Offs</span>
         </h2>
+        <ChevronDown
+          className={`w-6 h-6 text-teal-600 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+          aria-hidden="true"
+        />
       </div>
-      <p className="text-gray-600 text-sm mb-2 max-w-2xl leading-relaxed">
+
+      {/* Collapsible lab content */}
+      <div
+        id="prioritization-lab-content"
+        className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+      >
+        <div className="overflow-hidden">
+      <p className="text-gray-600 text-sm mb-2 max-w-2xl leading-relaxed mt-4">
         Five fictional research findings. Drag each one onto the Impact/Effort matrix where it belongs.
         When you&rsquo;re done, reveal my strategic reasoning to compare your thinking with mine.
       </p>
@@ -510,8 +543,10 @@ const PrioritizationLab = () => {
       <p className="text-center text-xs text-gray-400 mt-6 mb-6 hidden sm:block">
         How to Play: Select a research finding, then choose where it belongs on the matrix. Once you&rsquo;ve placed all five, reveal my strategic reasoning.
       </p>
+        </div>
+      </div>
 
-      {/* How I Facilitate Workshops card */}
+      {/* How I Facilitate Workshops card — always visible */}
       <div
         className="rounded-2xl shadow-lg p-6 sm:p-8 animate-pmt-reveal"
         style={{ backgroundColor: '#FFF6D5', border: '2px solid #E8D89A' }}
