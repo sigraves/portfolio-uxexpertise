@@ -340,8 +340,9 @@ const WarU = () => {
                     </p>
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    Learning experiences can be redesigned before teams fully understand learner needs,
-                    usability challenges, or the underlying problem.
+                    Learning and development teams must navigate complex requirements, stakeholder
+                    expectations, and evolving learner needs while ensuring learning experiences remain
+                    usable, accessible, and effective.
                   </p>
                 </div>
                 <div>
@@ -354,8 +355,9 @@ const WarU = () => {
                     </p>
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    I bring user-centered research, collaboration, strategic thinking, and usability
-                    evaluation into the process to help teams make evidence-informed decisions.
+                    I apply UX research, human-centered design, stakeholder collaboration, and usability
+                    evaluation to identify gaps, improve learning experiences, and translate complex
+                    requirements into clear, actionable recommendations that support informed decisions.
                   </p>
                 </div>
               </div>
