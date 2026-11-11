@@ -30,7 +30,6 @@ const NavBar = () => {
           className="flex items-center gap-2 text-sm font-bold tracking-tight text-gray-800 hover:text-teal-700 transition-colors"
         >
           <span className="hidden sm:inline">UXExpertise</span>
-          <span className="text-teal-600">2027</span>
         </a>
 
         <div className="hidden md:flex items-center gap-6">

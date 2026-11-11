@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, forwardRef } from 'react';
-import { RotateCw, Check, X, Lightbulb, Sparkles, ArrowRight, Construction } from 'lucide-react';
+import { RotateCw, Check, X, Lightbulb, Sparkles, ArrowRight, Construction, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { PlayCard as PlayCardType } from './types';
 import { suitSymbolMap, suitColorMap } from './types';
 
@@ -22,6 +22,8 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
   const suitColor = suitColorMap[card.suit];
   const isChooseCard = card.kind === 'choose' && card.options;
   const canFlip = !isChooseCard || revealedAnswer || selectedAnswer !== null;
+  const hasPrev = index > 0;
+  const hasNext = index < total - 1;
 
   // Reset state when card changes
   useEffect(() => {
@@ -92,11 +94,47 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
 
       {/* Card wrapper */}
       <div className="relative z-10 w-full max-w-md my-auto animate-card-draw">
+
+        {/* Top nav bar: Prev / Card counter / Next */}
+        <div className="flex items-center justify-between mb-2 px-1">
+          <button
+            onClick={onPrev}
+            disabled={!hasPrev}
+            className={`flex items-center gap-1 text-sm font-semibold rounded-lg px-3 py-1.5 transition-all ${
+              hasPrev
+                ? 'text-white bg-white/10 hover:bg-white/20 cursor-pointer'
+                : 'text-white/30 cursor-not-allowed'
+            }`}
+            aria-label="Previous card"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            Prev
+          </button>
+
+          <span className="text-xs text-white/60 font-medium">
+            {card.rank}{symbol} · {index + 1} of {total}
+          </span>
+
+          <button
+            onClick={onNext}
+            disabled={!hasNext}
+            className={`flex items-center gap-1 text-sm font-semibold rounded-lg px-3 py-1.5 transition-all ${
+              hasNext
+                ? 'text-white bg-white/10 hover:bg-white/20 cursor-pointer'
+                : 'text-white/30 cursor-not-allowed'
+            }`}
+            aria-label="Next card"
+          >
+            Next
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+
         {/* 3D flip container */}
         <div className={`card-3d ${flipped ? 'card-flipped' : ''}`}>
           <div
             className="card-inner"
-            style={{ height: 'min(82vh, 680px)', minHeight: '500px' }}
+            style={{ height: 'min(78vh, 640px)', minHeight: '480px' }}
           >
 
             {/* ════════════════════════════════════════
@@ -114,7 +152,7 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
               <div className="absolute inset-2.5 rounded-lg border-2 border-white/15" aria-hidden="true" />
 
               {/* Corner rank/suit */}
-              <div className="flex items-start justify-between p-4 pb-2 relative z-10">
+              <div className="flex items-start justify-between p-4 pb-2 relative z-10 flex-shrink-0">
                 <div className="flex flex-col items-center leading-none">
                   <span className="text-xl font-black text-white/90">{card.rank}</span>
                   <span className="text-lg text-white/90">{symbol}</span>
@@ -125,8 +163,8 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
                 </div>
               </div>
 
-              {/* Front body — scenario preview */}
-              <div className="flex-1 flex flex-col items-center justify-center px-6 pb-6 relative z-10 text-center">
+              {/* Front body — scrollable scenario preview */}
+              <div className="flex-1 overflow-y-auto px-6 pb-4 relative z-10 text-center flex flex-col items-center justify-center">
                 <div
                   className="text-5xl mb-5 animate-suit-pulse text-white/30"
                   aria-hidden="true"
@@ -154,8 +192,8 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
                 </p>
               </div>
 
-              {/* Flip button */}
-              <div className="px-6 pb-5 relative z-10">
+              {/* Flip button — always visible */}
+              <div className="px-6 pb-5 relative z-10 flex-shrink-0">
                 <button
                   onClick={handleFlip}
                   disabled={!canFlip}
@@ -203,7 +241,10 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
               </div>
 
               {/* Scrollable content area */}
-              <div className="flex-1 overflow-y-auto px-5 pb-3">
+              <div
+                className="flex-1 overflow-y-auto px-5 pb-3"
+                style={{ WebkitOverflowScrolling: 'touch' }}
+              >
                 {/* Section label */}
                 <div className="text-center mb-3 flex-shrink-0">
                   <div
@@ -341,7 +382,7 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
                 </p>
               </div>
 
-              {/* Bottom action bar — always visible */}
+              {/* Bottom action bar — always visible, not scrolled */}
               <div className="flex-shrink-0 border-t border-gray-100 px-4 py-3 flex items-center gap-2">
                 {/* Flip Back */}
                 <button
@@ -405,12 +446,9 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
           </div>
         )}
 
-        {/* Card counter + keyboard hints */}
-        <div className="text-center mt-3 text-gray-500 text-xs font-medium">
-          Card {index + 1} of {total} · {card.rank}{symbol}
-          <span className="hidden sm:inline text-gray-400 ml-2">
-            · ← → to navigate · Esc to close
-          </span>
+        {/* Keyboard hints */}
+        <div className="text-center mt-3 text-white/40 text-xs font-medium hidden sm:block">
+          ← → to navigate · Esc to close
         </div>
       </div>
     </div>

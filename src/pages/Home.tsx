@@ -11,7 +11,7 @@ const Home = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   useEffect(() => {
-    document.title = 'UXExpertise 2027 — Play My Thinking';
+    document.title = 'UXExpertise — Play My Thinking';
   }, []);
 
   const handleDeckClick = (deck: Deck) => {
@@ -85,7 +85,7 @@ const Home = () => {
           {/* Title */}
           <div className="relative z-10 text-center mb-8 sm:mb-12 animate-pmt-reveal">
             <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-teal-700/60 mb-3">
-              UXExpertise 2027
+              UXExpertise
             </p>
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight leading-tight">
               Play My Thinking
@@ -196,7 +196,7 @@ const Home = () => {
             Traditional write-ups of my professional work. Each one will eventually connect to a
             card deck above.
           </p>
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-3 gap-5">
             {[
               { label: 'WarU', desc: 'Organizational transformation', color: '#8B1A3A' },
               { label: 'Energy Provider', desc: 'Product strategy & CX', color: '#059669' },
@@ -204,9 +204,10 @@ const Home = () => {
             ].map((item) => (
               <div
                 key={item.label}
-                className="group rounded-xl border border-teal-900/10 bg-white/50 p-5 hover:border-teal-500/40 transition-all duration-200"
+                className="group rounded-xl bg-white p-5 transition-all duration-200 hover:shadow-lg"
+                style={{ border: `3px solid ${item.color}` }}
               >
-                <div className="w-8 h-1 rounded-full mb-3" style={{ background: item.color }} />
+                <div className="w-8 h-1.5 rounded-full mb-3" style={{ background: item.color }} />
                 <p className="font-bold text-gray-900 mb-1 group-hover:text-teal-700 transition-colors">
                   {item.label}
                 </p>
@@ -261,7 +262,7 @@ const Home = () => {
 
         <footer className="py-8 px-6 border-t border-teal-900/10 text-center">
           <p className="text-xs text-gray-400">
-            © 2027 Sandra Graves — UXExpertise.com — Play My Thinking™
+            © Sandra Graves — UXExpertise.com — Play My Thinking™
           </p>
         </footer>
       </main>
