@@ -508,7 +508,7 @@ const PrioritizationLab = () => {
 
       {/* Keyboard hint */}
       <p className="text-center text-xs text-gray-400 mt-6 mb-6 hidden sm:block">
-        Tab to navigate · Enter or Space to select a finding, then Enter to place · Enter on &ldquo;Reveal&rdquo; to see reasoning
+        How to Play: Select a research finding, then choose where it belongs on the matrix. Once you&rsquo;ve placed all five, reveal my strategic reasoning.
       </p>
 
       {/* How I Facilitate Workshops card */}
