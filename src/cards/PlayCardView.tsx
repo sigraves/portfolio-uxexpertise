@@ -138,7 +138,7 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
           >
 
             {/* ════════════════════════════════════════
-                FRONT FACE — Deck-colored card back
+                FRONT FACE — Deck-colored card with scenario + answers
                 ════════════════════════════════════════ */}
             <div
               className="card-face flex flex-col"
@@ -146,6 +146,7 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
                 background: `linear-gradient(145deg, ${suitColor}, ${suitColor}dd)`,
                 boxShadow: `0 20px 60px -10px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.15)`,
                 borderRadius: '14px',
+                pointerEvents: flipped ? 'none' : 'auto',
               }}
             >
               {/* Decorative inner border */}
@@ -163,36 +164,105 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
                 </div>
               </div>
 
-              {/* Front body — scrollable scenario preview */}
-              <div className="flex-1 overflow-y-auto px-6 pb-4 relative z-10 text-center flex flex-col items-center justify-center">
-                <div
-                  className="text-5xl mb-5 animate-suit-pulse text-white/30"
-                  aria-hidden="true"
-                >
-                  {symbol}
+              {/* Front body — scrollable */}
+              <div className="card-scroll flex-1 px-6 pb-4 relative z-10">
+                <div className="text-center mb-4">
+                  <div
+                    className="text-4xl mb-3 animate-suit-pulse text-white/30"
+                    aria-hidden="true"
+                  >
+                    {symbol}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2 leading-tight">
+                    {card.title}
+                  </h3>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3 leading-tight">
-                  {card.title}
-                </h3>
-
-                <p className="text-sm text-white/70 leading-relaxed mb-6 max-w-[260px]">
+                <p className="text-sm text-white/70 leading-relaxed mb-4 text-center">
                   {card.scenario}
                 </p>
 
-                <div className="w-full rounded-lg p-3 mb-2 bg-white/10 border-l-2 border-white/30">
+                <div className="w-full rounded-lg p-3 mb-4 bg-white/10 border-l-2 border-white/30">
                   <p className="text-sm font-semibold text-white italic">
                     {card.question}
                   </p>
                 </div>
 
+                {/* Answer options for choose cards — ON THE FRONT */}
+                {isChooseCard && (
+                  <div className="space-y-2 mb-4">
+                    {card.options!.map((opt) => {
+                      const isSelected = selectedAnswer === opt.letter;
+                      const showCorrect = revealedAnswer && opt.correct;
+                      const showWrong = revealedAnswer && isSelected && !opt.correct;
+                      return (
+                        <button
+                          key={opt.letter}
+                          onClick={() => handleAnswerSelect(opt.letter)}
+                          disabled={revealedAnswer}
+                          className={`w-full text-left rounded-lg border-2 p-2.5 transition-all duration-200 flex items-start gap-2.5 ${
+                            showCorrect
+                              ? 'border-green-400 bg-green-400/20'
+                              : showWrong
+                                ? 'border-red-400 bg-red-400/20'
+                                : isSelected
+                                  ? 'border-white bg-white/20'
+                                  : 'border-white/20 bg-white/5 hover:border-white/50'
+                          } ${revealedAnswer ? 'cursor-default' : 'cursor-pointer'}`}
+                        >
+                          <span
+                            className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                            style={{
+                              background: showCorrect ? '#22c55e' : showWrong ? '#ef4444' : 'rgba(255,255,255,0.2)',
+                              border: '1px solid rgba(255,255,255,0.3)',
+                            }}
+                          >
+                            {showCorrect ? <Check className="w-3 h-3" /> : showWrong ? <X className="w-3 h-3" /> : opt.letter}
+                          </span>
+                          <span className="text-xs text-white/90 leading-snug">{opt.text}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Reveal answer button for choose cards */}
+                {isChooseCard && selectedAnswer && !revealedAnswer && (
+                  <button
+                    onClick={handleRevealAnswers}
+                    className="w-full py-2.5 rounded-lg font-bold text-sm mb-3 bg-white text-gray-900 hover:bg-white/90 transition-all"
+                  >
+                    Reveal Answer
+                  </button>
+                )}
+
+                {/* Result banner for choose cards */}
+                {isChooseCard && revealedAnswer && selectedAnswer && (
+                  <div
+                    className="mb-3 rounded-lg p-2.5 text-center"
+                    style={{
+                      background: card.options!.find((o) => o.letter === selectedAnswer)?.correct
+                        ? 'rgba(34, 197, 94, 0.2)'
+                        : 'rgba(239, 68, 68, 0.2)',
+                    }}
+                  >
+                    <p className="text-sm font-bold text-white">
+                      {card.options!.find((o) => o.letter === selectedAnswer)?.correct
+                        ? 'Correct!'
+                        : 'Not quite — but the reasoning is what matters.'}
+                    </p>
+                  </div>
+                )}
+
                 {/* Hint */}
-                <p className="text-xs text-white/40 mt-4">
-                  {isChooseCard ? 'Choose an answer, then flip to see my reasoning' : 'Flip to see my reasoning'}
+                <p className="text-xs text-white/40 text-center mt-2">
+                  {isChooseCard && !revealedAnswer
+                    ? 'Choose an answer, then flip to see my reasoning'
+                    : 'Flip to see my reasoning'}
                 </p>
               </div>
 
-              {/* Flip button — always visible */}
+              {/* Flip button — always visible, pinned at bottom */}
               <div className="px-6 pb-5 relative z-10 flex-shrink-0">
                 <button
                   onClick={handleFlip}
@@ -208,16 +278,12 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
                     Flip Card
                   </span>
                 </button>
-                {!canFlip && (
-                  <p className="text-center text-xs text-white/40 mt-2">
-                    Select an answer first
-                  </p>
-                )}
               </div>
             </div>
 
             {/* ════════════════════════════════════════
                 BACK FACE — Pure white, deck-color accents
+                Same clean style for all suits
                 ════════════════════════════════════════ */}
             <div
               className="card-face card-back flex flex-col"
@@ -226,6 +292,7 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
                 boxShadow: `0 20px 60px -10px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(0,0,0,0.05)`,
                 borderRadius: '14px',
                 border: `2px solid ${suitColor}30`,
+                pointerEvents: flipped ? 'auto' : 'none',
               }}
             >
               {/* Corner rank/suit — deck color accent */}
@@ -241,10 +308,7 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
               </div>
 
               {/* Scrollable content area */}
-              <div
-                className="flex-1 overflow-y-auto px-5 pb-3"
-                style={{ WebkitOverflowScrolling: 'touch' }}
-              >
+              <div className="card-scroll flex-1 px-5 pb-3">
                 {/* Section label */}
                 <div className="text-center mb-3 flex-shrink-0">
                   <div
@@ -273,89 +337,6 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
                   {card.title}
                 </h3>
 
-                {/* Question reminder */}
-                <div
-                  className="rounded-lg p-3 mb-3"
-                  style={{ background: `${suitColor}08`, borderLeft: `3px solid ${suitColor}` }}
-                >
-                  <p className="text-xs text-gray-500 mb-1 font-medium">
-                    {card.question}
-                  </p>
-                </div>
-
-                {/* Choose card answer options */}
-                {isChooseCard && (
-                  <div className="space-y-2 mb-3">
-                    {card.options!.map((opt) => {
-                      const isSelected = selectedAnswer === opt.letter;
-                      const showCorrect = revealedAnswer && opt.correct;
-                      const showWrong = revealedAnswer && isSelected && !opt.correct;
-                      return (
-                        <button
-                          key={opt.letter}
-                          onClick={() => handleAnswerSelect(opt.letter)}
-                          disabled={revealedAnswer}
-                          className={`w-full text-left rounded-lg border-2 p-2.5 transition-all duration-200 flex items-start gap-2.5 ${
-                            showCorrect
-                              ? 'border-green-500 bg-green-50'
-                              : showWrong
-                                ? 'border-red-400 bg-red-50'
-                                : isSelected
-                                  ? 'border-gray-700 bg-gray-50'
-                                  : 'border-gray-200 bg-white hover:border-gray-400'
-                          } ${revealedAnswer ? 'cursor-default' : 'cursor-pointer'}`}
-                        >
-                          <span
-                            className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold text-white"
-                            style={{
-                              background: showCorrect ? '#22c55e' : showWrong ? '#ef4444' : suitColor,
-                            }}
-                          >
-                            {showCorrect ? <Check className="w-3 h-3" /> : showWrong ? <X className="w-3 h-3" /> : opt.letter}
-                          </span>
-                          <span className="text-xs text-gray-700 leading-snug">{opt.text}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-
-                {/* Reveal answer button for choose cards */}
-                {isChooseCard && selectedAnswer && !revealedAnswer && (
-                  <button
-                    onClick={handleRevealAnswers}
-                    className="w-full py-2.5 rounded-lg font-semibold text-white text-sm mb-3 transition-all hover:opacity-90"
-                    style={{ background: suitColor }}
-                  >
-                    Reveal Answer
-                  </button>
-                )}
-
-                {/* Result banner for choose cards */}
-                {isChooseCard && revealedAnswer && selectedAnswer && (
-                  <div
-                    className="mb-3 rounded-lg p-2.5 text-center"
-                    style={{
-                      background: card.options!.find((o) => o.letter === selectedAnswer)?.correct
-                        ? 'rgba(34, 197, 94, 0.1)'
-                        : 'rgba(239, 68, 68, 0.1)',
-                    }}
-                  >
-                    <p
-                      className="text-sm font-bold"
-                      style={{
-                        color: card.options!.find((o) => o.letter === selectedAnswer)?.correct
-                          ? '#16a34a'
-                          : '#dc2626',
-                      }}
-                    >
-                      {card.options!.find((o) => o.letter === selectedAnswer)?.correct
-                        ? 'Correct!'
-                        : 'Not quite — but the reasoning is what matters.'}
-                    </p>
-                  </div>
-                )}
-
                 {/* Reasoning — dark text on white */}
                 <div className="rounded-lg p-3 mb-3 bg-gray-50 border border-gray-100">
                   <p className="text-sm text-gray-800 leading-relaxed">
@@ -382,7 +363,7 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
                 </p>
               </div>
 
-              {/* Bottom action bar — always visible, not scrolled */}
+              {/* Bottom action bar — always visible, pinned at bottom */}
               <div className="flex-shrink-0 border-t border-gray-100 px-4 py-3 flex items-center gap-2">
                 {/* Flip Back */}
                 <button

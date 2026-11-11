@@ -92,7 +92,8 @@ const Home = () => {
               <span className="text-teal-600 text-2xl sm:text-3xl align-top">™</span>
             </h1>
             <p className="text-sm sm:text-base text-gray-600 mt-4 max-w-md mx-auto leading-relaxed">
-              Draw a card. Explore a real UX challenge. Flip it to see how I think.
+              Draw a card. Explore a real UX challenge.<br />
+              Flip it to see how I think.
             </p>
           </div>
 

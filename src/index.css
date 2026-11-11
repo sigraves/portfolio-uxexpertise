@@ -50,6 +50,15 @@ body {
   overflow: hidden;
 }
 
+/* Allow inner scroll containers to scroll within card faces */
+.card-face .card-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.2) transparent;
+}
+
+/* Ensure back face buttons are clickable after flip */
 .card-back {
   transform: rotateY(180deg);
 }
