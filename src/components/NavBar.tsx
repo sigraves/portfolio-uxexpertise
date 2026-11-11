@@ -4,7 +4,7 @@ import FourQuadrant from './FourQuadrant';
 
 const navLinks = [
   { href: '#about', label: 'About Me' },
-  { href: '#resume', label: 'Résumé' },
+  { href: '#resume', label: 'Resume' },
   { href: '#case-studies', label: 'Case Studies' },
   { href: '#contact', label: 'Contact' },
 ];

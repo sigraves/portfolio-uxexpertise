@@ -158,17 +158,17 @@ const Home = () => {
         </section>
 
         {/* ════════════════════════════════════════════════
-            RÉSUMÉ
+            RESUME
             ════════════════════════════════════════════════ */}
         <section id="resume" className="py-12 px-6 max-w-3xl mx-auto border-t border-teal-900/10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
               <FileText className="w-5 h-5 text-teal-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">Résumé</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Resume</h2>
           </div>
           <p className="text-gray-600 text-sm">
-            Full résumé available on request.{' '}
+            Full resume available on request.{' '}
             <a
               href="mailto:sigraves@hotmail.com"
               className="text-teal-600 hover:text-teal-700 transition-colors font-medium"
