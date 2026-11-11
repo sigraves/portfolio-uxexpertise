@@ -7,7 +7,7 @@ import PlayCardView from '../cards/PlayCardView';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import FourQuadrant from '../components/FourQuadrant';
-import { ArrowRight, Mail, Linkedin, MapPin, FileText, Layers } from 'lucide-react';
+import { ArrowRight, Mail, Linkedin, MapPin, FileText, Layers, Briefcase, GraduationCap, Award } from 'lucide-react';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -136,24 +136,74 @@ const Home = () => {
             <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
               <span className="text-teal-600 text-lg font-bold">♦</span>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">About Sandra</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Research. Strategy. Results. And a Little Curiosity.</h2>
           </div>
           <div className="space-y-4 text-gray-600 leading-relaxed">
             <p>
-              I'm a UX strategist and researcher with 10+ years helping government organizations,
-              educators, and multidisciplinary teams solve complex problems through evidence-based
-              design.
+              I&rsquo;m a UX strategist and researcher with 20+ years of professional experience helping
+              organizations, educators, and multidisciplinary teams navigate complex challenges through
+              human-centered thinking and evidence-based design.
             </p>
             <p>
-              My approach combines UX research, experience strategy, customer experience, and
-              Human-Centered AI. I follow three rules: evidence before opinion, context before
-              solution, collaboration before handoff.
+              My work connects UX research, customer experience, strategic decision-making, and
+              Human-Centered AI. I&rsquo;ve earned recognition through YouRock Awards and leadership
+              commendations, but what matters most to me is helping teams understand their users, make
+              better decisions, and create experiences that work.
+            </p>
+            <p>
+              I follow three rules: evidence before opinion, context before solution, and collaboration
+              before handoff.
             </p>
             <p className="text-teal-700 font-semibold">
-              I built this card experience because I believe the best way to understand how someone
-              thinks is not to read their accomplishments — it is to work through a problem with
-              them.
+              I built Play My Thinking&trade; because I believe the best way to understand how someone
+              thinks isn&rsquo;t to read a list of accomplishments&mdash;it&rsquo;s to experience how they
+              approach a problem.
             </p>
+          </div>
+
+          {/* Achievement cards */}
+          <div className="grid sm:grid-cols-3 gap-4 mt-8">
+            {/* Experience */}
+            <div
+              className="bg-white rounded-2xl p-6 text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 animate-pmt-reveal"
+              style={{ border: '2px solid #05966920' }}
+            >
+              <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mx-auto mb-3">
+                <Briefcase className="w-5 h-5 text-teal-600" />
+              </div>
+              <p className="text-4xl font-black text-gray-900 leading-none">20+</p>
+              <p className="text-xs font-medium text-gray-500 mt-2 leading-snug">
+                Years of Professional Experience
+              </p>
+            </div>
+
+            {/* Mentorship */}
+            <div
+              className="bg-white rounded-2xl p-6 text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 animate-pmt-reveal"
+              style={{ border: '2px solid #05966920' }}
+            >
+              <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mx-auto mb-3">
+                <GraduationCap className="w-5 h-5 text-teal-600" />
+              </div>
+              <p className="text-4xl font-black text-gray-900 leading-none">100+</p>
+              <p className="text-xs font-medium text-gray-500 mt-2 leading-snug">
+                Students Mentored
+              </p>
+            </div>
+
+            {/* Recognition */}
+            <div
+              className="bg-white rounded-2xl p-6 text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 animate-pmt-reveal"
+              style={{ border: '2px solid #05966920' }}
+            >
+              <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center mx-auto mb-3">
+                <Award className="w-5 h-5 text-teal-600" />
+              </div>
+              <p className="text-lg font-black text-gray-900 leading-tight">YouRock Awards</p>
+              <p className="text-xs font-medium text-gray-500 mt-2 leading-snug">
+                & Leadership Recognition
+              </p>
+            </div>
           </div>
         </section>
 
