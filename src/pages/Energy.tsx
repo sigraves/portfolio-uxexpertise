@@ -15,7 +15,7 @@ import {
 import FourQuadrant from '../components/FourQuadrant';
 import Footer from '../components/Footer';
 
-type TouchpointId = 'discover' | 'compare' | 'apply' | 'confirm' | 'support';
+type TouchpointId = 'highBill' | 'usage' | 'callSupport' | 'saveEnergy' | 'confidence';
 
 interface Touchpoint {
   id: TouchpointId;
@@ -29,57 +29,57 @@ interface Touchpoint {
 
 const touchpoints: Touchpoint[] = [
   {
-    id: 'discover',
+    id: 'highBill',
     emoji: '😕',
-    label: 'Discover',
+    label: 'High Bill',
     icon: HelpCircle,
-    customerExperience: 'I don\u2019t know where to begin or which service I need.',
-    uxApproach: 'Investigate information-finding behavior and customer expectations.',
-    improvement: 'A clearer starting point and easier navigation.',
+    customerExperience: 'Why is my electricity bill so high?',
+    uxApproach: 'Understand billing confusion, expectations, and perceived energy usage.',
+    improvement: 'Make charges and consumption easier to understand.',
   },
   {
-    id: 'compare',
+    id: 'usage',
     emoji: '⚡',
-    label: 'Compare',
+    label: 'Usage',
     icon: Zap,
-    customerExperience: 'These options are confusing. What\u2019s the difference?',
-    uxApproach: 'Evaluate terminology, content clarity, and decision-making difficulties.',
-    improvement: 'Simpler language and clearer comparisons.',
+    customerExperience: 'I\u2019m barely using electricity. How can I owe this much?',
+    uxApproach: 'Investigate how customers interpret their consumption and where information is missing.',
+    improvement: 'Connect energy usage patterns with billing information.',
   },
   {
-    id: 'apply',
+    id: 'callSupport',
     emoji: '😣',
-    label: 'Apply',
+    label: 'Call Support',
     icon: AlertCircle,
-    customerExperience: 'Why does completing this request take so many steps?',
-    uxApproach: 'Examine task flows, usability issues, and unnecessary steps.',
-    improvement: 'A simpler process with clearer guidance.',
+    customerExperience: 'I need to call someone to explain this bill.',
+    uxApproach: 'Identify recurring questions, unmet information needs, and reasons customers contact support.',
+    improvement: 'Provide clearer self-service answers to reduce unnecessary calls.',
   },
   {
-    id: 'confirm',
+    id: 'saveEnergy',
     emoji: '😊',
-    label: 'Confirm',
+    label: 'Save Energy',
     icon: Check,
-    customerExperience: 'Great! I know my request was received.',
-    uxApproach: 'Improve confirmation feedback and next-step clarity.',
-    improvement: 'Greater confidence and less uncertainty.',
+    customerExperience: 'Now I understand what I can do to use less energy.',
+    uxApproach: 'Explore useful guidance, conservation tools, savings opportunities, and incentives.',
+    improvement: 'Help customers make informed decisions about reducing consumption.',
   },
   {
-    id: 'support',
+    id: 'confidence',
     emoji: '😄',
-    label: 'Support',
+    label: 'Confidence',
     icon: Smile,
-    customerExperience: 'I know where to get help if I need it.',
-    uxApproach: 'Evaluate support pathways and opportunities to reduce customer effort.',
-    improvement: 'Easier access to helpful assistance.',
+    customerExperience: 'I know how to manage my energy use and where to find help.',
+    uxApproach: 'Evaluate whether information and guidance help customers understand their options and take action.',
+    improvement: 'Improve customer confidence and reduce avoidable support demand.',
   },
 ];
 
-const frictionIds: TouchpointId[] = ['discover', 'compare', 'apply'];
+const frictionIds: TouchpointId[] = ['highBill', 'usage', 'callSupport'];
 
 const Energy = () => {
   const navigate = useNavigate();
-  const [activeTouchpoint, setActiveTouchpoint] = useState<TouchpointId>('discover');
+  const [activeTouchpoint, setActiveTouchpoint] = useState<TouchpointId>('highBill');
   const [improved, setImproved] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -96,9 +96,9 @@ const Energy = () => {
 
   const getDisplayEmoji = (tp: Touchpoint) => {
     if (improved && frictionIds.includes(tp.id)) {
-      if (tp.id === 'discover') return '🙂';
-      if (tp.id === 'compare') return '😊';
-      if (tp.id === 'apply') return '😌';
+      if (tp.id === 'highBill') return '🙂';
+      if (tp.id === 'usage') return '😊';
+      if (tp.id === 'callSupport') return '😌';
     }
     return tp.emoji;
   };
@@ -174,13 +174,13 @@ const Energy = () => {
                     <span className="text-xs font-black" style={{ color: '#059669' }}>!</span>
                   </div>
                   <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#059669' }}>
-                    The Problem
+                    The Challenge — How Might We?
                   </p>
                 </div>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  The energy company needed to understand where customers experienced friction
-                  throughout their service journey and what was preventing a seamless customer
-                  experience.
+                  How might we help customers understand their electricity bills, reduce energy
+                  consumption, and discover savings opportunities while decreasing billing-related
+                  customer support complaints?
                 </p>
               </div>
               <div>
@@ -193,9 +193,10 @@ const Energy = () => {
                   </p>
                 </div>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  I conducted customer interviews, developed journey maps, and performed usability
-                  testing to uncover pain points and deliver actionable insights and recommendations
-                  that informed improvements to the customer experience.
+                  My team and I conducted customer interviews, mapped customer journeys, and performed
+                  usability testing to uncover billing frustrations, identify opportunities for
+                  energy-saving guidance and incentives, and deliver actionable recommendations to
+                  improve the customer experience and reduce avoidable support calls.
                 </p>
               </div>
             </div>
@@ -408,7 +409,7 @@ const Energy = () => {
           <p className="text-center text-xs text-gray-400 mb-4">
             {improved
               ? 'Showing the improved journey — friction points transformed into positive experiences.'
-              : 'Showing the original journey with friction points at Discover, Compare, and Apply.'}
+              : 'Showing the original journey with friction points at High Bill, Usage, and Call Support.'}
           </p>
 
           {/* Keyboard hint */}
