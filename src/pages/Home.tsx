@@ -202,7 +202,7 @@ const Home = () => {
           <div className="grid sm:grid-cols-3 gap-5">
             {[
               { label: 'WarU', desc: 'Organizational transformation', color: '#8B1A3A', href: '/waru' },
-              { label: 'Energy Provider', desc: 'Product strategy & CX', color: '#059669', href: null },
+              { label: 'Energy Provider', desc: 'Product strategy & CX', color: '#059669', href: '/energy' },
               { label: 'UTSA', desc: 'UX education & mentorship', color: '#f97316', href: null },
             ].map((item) => (
               <div
@@ -293,7 +293,9 @@ const Home = () => {
           onExploreProject={
             activeCard.projectRef?.includes('WarU')
               ? () => navigate('/waru')
-              : undefined
+              : activeCard.projectRef?.includes('Energy')
+                ? () => navigate('/energy')
+                : undefined
           }
         />
       )}

@@ -321,6 +321,43 @@ const WarU = () => {
               </p>
             </div>
 
+            {/* Problem + Solution summary card */}
+            <div
+              className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8 animate-pmt-reveal"
+              style={{ border: '2px solid #8B1A3A20' }}
+            >
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#8B1A3A10' }}>
+                      <span className="text-xs font-black" style={{ color: '#8B1A3A' }}>!</span>
+                    </div>
+                    <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#8B1A3A' }}>
+                      The Problem
+                    </p>
+                  </div>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Learning experiences can be redesigned before teams fully understand learner needs,
+                    usability challenges, or the underlying problem.
+                  </p>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#8B1A3A10' }}>
+                      <Lightbulb className="w-3.5 h-3.5" style={{ color: '#8B1A3A' }} />
+                    </div>
+                    <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#8B1A3A' }}>
+                      The Solution
+                    </p>
+                  </div>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    I bring user-centered research, collaboration, strategic thinking, and usability
+                    evaluation into the process to help teams make evidence-informed decisions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Progress indicator */}
             <div className="flex items-center justify-center gap-2 mb-8" role="progressbar" aria-valuenow={currentScreen + 1} aria-valuemin={1} aria-valuemax={totalScreens}>
               {screens.map((s, i) => {
