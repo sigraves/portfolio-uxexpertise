@@ -205,8 +205,8 @@ const Home = () => {
             ].map((item) => (
               <div
                 key={item.label}
-                className="group rounded-xl bg-white p-5 transition-all duration-200 hover:shadow-lg"
-                style={{ border: `3px solid ${item.color}` }}
+                className="group rounded-xl p-5 transition-all duration-200 hover:shadow-lg"
+                style={{ border: `3px solid ${item.color}`, backgroundColor: '#FFFFFF' }}
               >
                 <div className="w-8 h-1.5 rounded-full mb-3" style={{ background: item.color }} />
                 <p className="font-bold text-gray-900 mb-1 group-hover:text-teal-700 transition-colors">
