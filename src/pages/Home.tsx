@@ -203,7 +203,7 @@ const Home = () => {
             {[
               { label: 'WarU', desc: 'Organizational transformation', color: '#8B1A3A', href: '/waru' },
               { label: 'Energy Provider', desc: 'Product strategy & CX', color: '#059669', href: '/energy' },
-              { label: 'UTSA', desc: 'UX education & mentorship', color: '#f97316', href: null },
+              { label: 'UTSA', desc: 'UX education & mentorship', color: '#f97316', href: '/utsa' },
             ].map((item) => (
               <div
                 key={item.label}
@@ -295,7 +295,9 @@ const Home = () => {
               ? () => navigate('/waru')
               : activeCard.projectRef?.includes('Energy')
                 ? () => navigate('/energy')
-                : undefined
+                : activeCard.projectRef?.includes('UTSA')
+                  ? () => navigate('/utsa')
+                  : undefined
           }
         />
       )}
