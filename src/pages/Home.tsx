@@ -204,9 +204,9 @@ const Home = () => {
           </p>
           <div className="grid sm:grid-cols-3 gap-5">
             {[
-              { label: 'WarU', desc: 'Organizational transformation', color: '#8B1A3A', href: '/waru' },
-              { label: 'Energy Provider', desc: 'Product strategy & CX', color: '#059669', href: '/energy' },
-              { label: 'UTSA', desc: 'UX education & mentorship', color: '#f97316', href: '/utsa' },
+              { label: 'WarU', desc: 'Organizational Transformation', color: '#8B1A3A', href: '/waru' },
+              { label: 'Energy Provider', desc: 'Product Strategy & CX', color: '#059669', href: '/energy' },
+              { label: 'UTSA', desc: 'UX Education & Mentorship', color: '#f97316', href: '/utsa' },
             ].map((item) => (
               <div
                 key={item.label}
