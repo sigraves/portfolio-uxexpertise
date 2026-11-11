@@ -13,6 +13,7 @@ import CPSEnergyCaseStudy from './pages/CPSEnergyCaseStudy';
 import { AISingleMoms } from './pages/AISingleMoms';
 import ResearchApproach from './pages/ResearchApproach';
 import UTSACaseStudy from './pages/UTSACaseStudy';
+import Portfolio2027Preview from './pages/Portfolio2027Preview';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -52,6 +53,7 @@ function App() {
         <Route path="/ai-singlemoms" element={<AISingleMoms />} />
         <Route path="/research" element={<ResearchApproach />} />
         <Route path="/utsa" element={<UTSACaseStudy />} />
+        <Route path="/portfolio-2027-preview" element={<Portfolio2027Preview />} />
       </Routes>
     </Router>
   );
