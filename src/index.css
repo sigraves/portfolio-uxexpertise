@@ -13,134 +13,131 @@ body {
   line-height: 1.6;
 }
 
-/* Custom Animations */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ===== Card Table — Play My Thinking ===== */
+
+/* Felt table texture */
+.felt-table {
+  background-color: #0d4f3c;
+  background-image:
+    radial-gradient(ellipse at 50% 40%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(0, 0, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
 }
 
-@keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: translateY(-10px);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
+/* 3D card flip */
+.card-3d {
+  perspective: 1200px;
 }
 
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
-.animate-bounce-slow {
-  animation: bounce-slow 3s ease-in-out infinite;
+.card-flipped .card-inner {
+  transform: rotateY(180deg);
 }
 
-/* Accordion expand animation */
-@keyframes fadeIn {
-  from {
+.card-face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Card draw animation */
+@keyframes card-draw {
+  0% {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-40px) rotate(-8deg) scale(0.9);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg) scale(1);
   }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out;
+.animate-card-draw {
+  animation: card-draw 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* Hide scrollbar for horizontal scroll */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Deck fan layout */
+@keyframes deck-rise {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+.animate-deck-rise {
+  animation: deck-rise 0.6s ease-out forwards;
 }
 
-/* Smooth scroll snapping */
-.snap-x {
-  scroll-snap-type: x mandatory;
+/* Suit symbol pulse */
+@keyframes suit-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.08); opacity: 0.7; }
 }
 
-.snap-start {
-  scroll-snap-align: start;
+.animate-suit-pulse {
+  animation: suit-pulse 3s ease-in-out infinite;
 }
 
-/* Enhanced focus states for accessibility */
+/* Ambient ember particles */
+@keyframes ember-float {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.15; }
+  90% { opacity: 0.15; }
+  100% { transform: translateY(-120vh) translateX(20px); opacity: 0; }
+}
+
+/* Card shimmer on hover */
+@keyframes card-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* Smooth reveal */
+@keyframes pmt-reveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pmt-reveal {
+  animation: pmt-reveal 0.5s ease-out forwards;
+}
+
+/* Answer button pop */
+@keyframes answer-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-answer-pop {
+  animation: answer-pop 0.3s ease-out;
+}
+
+/* Enhanced focus */
 *:focus {
-  outline: 2px solid #FF6B35;
+  outline: 2px solid #f59e0b;
   outline-offset: 2px;
 }
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .text-gray-400,
-  .text-gray-500,
-  .text-gray-600,
-  .text-gray-700 {
-    color: #000000;
-  }
-  .bg-gray-50,
-  .bg-gray-100 {
-    background-color: #ffffff;
-  }
-  /* Ensure ghost/muted text on dark backgrounds is fully white */
-  .bg-gray-900 .text-gray-400,
-  .bg-gray-900 .text-gray-300 {
-    color: #ffffff;
-  }
-}
-
-/* Reduced motion preferences */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .card-inner { transition: none !important; }
 }
-
-/* ===== Portfolio 2027 — Thinking System ===== */
-
-@keyframes ts-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.04); opacity: 1; }
-}
-
-@keyframes ts-flow-dash {
-  to { stroke-dashoffset: -24; }
-}
-
-@keyframes ts-float-particle {
-  0% { transform: translateY(0); opacity: 0; }
-  10% { opacity: 0.35; }
-  90% { opacity: 0.35; }
-  100% { transform: translateY(-110vh) translateX(30px); opacity: 0; }
-}
-
-@keyframes ts-reveal {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes ts-ripple {
-  0% { transform: scale(1); opacity: 0.7; }
-  100% { transform: scale(3); opacity: 0; }
-}
-
-.animate-ts-pulse { animation: ts-pulse 3s ease-in-out infinite; }
-.animate-ts-reveal { animation: ts-reveal 0.5s ease-out forwards; }

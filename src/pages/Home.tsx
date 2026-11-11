@@ -1,0 +1,312 @@
+import React, { useState, useEffect } from 'react';
+import { decks } from '../cards/deckData';
+import type { Deck, PlayCard } from '../cards/types';
+import DeckStack from '../cards/DeckStack';
+import PlayCardView from '../cards/PlayCardView';
+import NavBar from '../components/NavBar';
+import { ArrowRight, Mail, Linkedin, MapPin, FileText, Layers } from 'lucide-react';
+
+const Home = () => {
+  const [activeDeck, setActiveDeck] = useState<Deck | null>(null);
+  const [drawnCards, setDrawnCards] = useState<PlayCard[]>([]);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [viewMode, setViewMode] = useState<'table' | 'browse'>('table');
+
+  useEffect(() => {
+    document.title = 'UXExpertise 2027 — Play My Thinking';
+  }, []);
+
+  const handleDeckClick = (deck: Deck) => {
+    setActiveDeck(deck);
+    setDrawnCards(deck.cards);
+    setCurrentCardIndex(0);
+  };
+
+  const handleCloseCard = () => {
+    setActiveDeck(null);
+    setDrawnCards([]);
+    setCurrentCardIndex(0);
+  };
+
+  const handleNextCard = () => {
+    if (currentCardIndex < drawnCards.length - 1) {
+      setCurrentCardIndex(currentCardIndex + 1);
+    }
+  };
+
+  const handlePrevCard = () => {
+    if (currentCardIndex > 0) {
+      setCurrentCardIndex(currentCardIndex - 1);
+    }
+  };
+
+  const activeCard = drawnCards[currentCardIndex] ?? null;
+
+  return (
+    <div className="min-h-screen bg-[#0a1a14] text-amber-50">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-amber-400 focus:text-gray-900 focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
+
+      <NavBar />
+
+      <main id="main-content">
+        {/* ════════════════════════════════════════════════
+            THE CARD TABLE
+            ════════════════════════════════════════════════ */}
+        <section
+          className="felt-table relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-20 pb-12 overflow-hidden"
+          aria-label="Play My Thinking — Interactive card table"
+        >
+          {/* Ambient embers */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full bg-amber-200/20"
+                style={{
+                  left: `${10 + Math.random() * 80}%`,
+                  bottom: '-10px',
+                  width: '2px',
+                  height: '2px',
+                  animation: `ember-float ${15 + Math.random() * 10}s linear infinite`,
+                  animationDelay: `${Math.random() * 12}s`,
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Table center logo */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.04] select-none" aria-hidden="true">
+            <div className="text-[180px] sm:text-[280px] font-black text-amber-100 leading-none">
+              ♠♥♦♣
+            </div>
+          </div>
+
+          {/* Title */}
+          <div className="relative z-10 text-center mb-8 sm:mb-12 animate-pmt-reveal">
+            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-amber-300/60 mb-3">
+              UXExpertise 2027
+            </p>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-amber-50 tracking-tight leading-tight">
+              Play My Thinking
+              <span className="text-amber-400 text-2xl sm:text-3xl align-top">™</span>
+            </h1>
+            <p className="text-sm sm:text-base text-amber-100/50 mt-4 max-w-md mx-auto leading-relaxed">
+              Draw a card. Explore a real UX challenge. Flip it to see how I think.
+            </p>
+          </div>
+
+          {/* Decks */}
+          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 max-w-4xl w-full">
+            {decks.map((deck, i) => (
+              <DeckStack
+                key={deck.suit}
+                deck={deck}
+                index={i}
+                onClick={() => handleDeckClick(deck)}
+              />
+            ))}
+          </div>
+
+          {/* Skip the game link */}
+          <div className="relative z-10 mt-10 sm:mt-14 text-center">
+            <button
+              onClick={() => {
+                setViewMode('browse');
+                document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center gap-2 text-xs sm:text-sm text-amber-200/40 hover:text-amber-200/80 transition-colors font-medium"
+            >
+              <Layers className="w-4 h-4" />
+              Prefer traditional navigation? Browse my work
+            </button>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════
+            ABOUT ME
+            ════════════════════════════════════════════════ */}
+        <section id="about" className="py-20 px-6 max-w-3xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center">
+              <span className="text-amber-400 text-lg font-bold">♦</span>
+            </div>
+            <h2 className="text-2xl font-bold text-amber-50">About Sandra</h2>
+          </div>
+          <div className="space-y-4 text-amber-100/70 leading-relaxed">
+            <p>
+              I'm a UX strategist and researcher with 10+ years helping government organizations,
+              educators, and multidisciplinary teams solve complex problems through evidence-based
+              design.
+            </p>
+            <p>
+              My approach combines UX research, experience strategy, customer experience, and
+              Human-Centered AI. I follow three rules: evidence before opinion, context before
+              solution, collaboration before handoff.
+            </p>
+            <p className="text-amber-200/80 font-semibold">
+              I built this card experience because I believe the best way to understand how someone
+              thinks is not to read their accomplishments — it is to work through a problem with
+              them.
+            </p>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════
+            RÉSUMÉ
+            ════════════════════════════════════════════════ */}
+        <section id="resume" className="py-12 px-6 max-w-3xl mx-auto border-t border-white/5">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center">
+              <FileText className="w-5 h-5 text-amber-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-amber-50">Résumé</h2>
+          </div>
+          <p className="text-amber-100/60 text-sm">
+            Full résumé available on request.{' '}
+            <a
+              href="mailto:sigraves@hotmail.com"
+              className="text-amber-400 hover:text-amber-300 transition-colors font-medium"
+            >
+              Email me
+            </a>{' '}
+            for a copy, or connect on{' '}
+            <a
+              href="https://www.linkedin.com/in/sandragraves/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-400 hover:text-amber-300 transition-colors font-medium"
+            >
+              LinkedIn
+            </a>
+            .
+          </p>
+        </section>
+
+        {/* ════════════════════════════════════════════════
+            CASE STUDIES
+            ════════════════════════════════════════════════ */}
+        <section id="case-studies" className="py-12 px-6 max-w-4xl mx-auto border-t border-white/5">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center">
+              <Layers className="w-5 h-5 text-amber-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-amber-50">Case Studies</h2>
+          </div>
+          <p className="text-amber-100/60 text-sm mb-6">
+            Traditional write-ups of my professional work. Each one will eventually connect to a
+            card deck above.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              { label: 'WarU', desc: 'Organizational transformation', color: '#8B1A3A' },
+              { label: 'Energy Provider', desc: 'Product strategy & CX', color: '#059669' },
+              { label: 'UTSA', desc: 'UX education & mentorship', color: '#f97316' },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="group rounded-xl border border-white/10 bg-white/[0.02] p-5 hover:border-amber-500/30 transition-all duration-200"
+              >
+                <div className="w-8 h-1 rounded-full mb-3" style={{ background: item.color }} />
+                <p className="font-bold text-amber-50 mb-1 group-hover:text-amber-300 transition-colors">
+                  {item.label}
+                </p>
+                <p className="text-xs text-amber-100/40">{item.desc}</p>
+                <p className="text-xs text-amber-200/30 mt-3 italic">
+                  Content being migrated from the live site
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════
+            CONTACT
+            ════════════════════════════════════════════════ */}
+        <section id="contact" className="py-20 px-6 max-w-3xl mx-auto border-t border-white/5">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center">
+              <span className="text-amber-400 text-lg font-bold">♠</span>
+            </div>
+            <h2 className="text-2xl font-bold text-amber-50">Let's Connect</h2>
+          </div>
+          <p className="text-amber-100/60 mb-8 max-w-xl">
+            Whether you're improving an experience, modernizing services, or exploring
+            Human-Centered AI — I'd welcome the opportunity to connect.
+          </p>
+          <div className="space-y-4">
+            <a
+              href="mailto:sigraves@hotmail.com"
+              className="flex items-center gap-3 text-amber-100/80 hover:text-amber-300 transition-colors group"
+            >
+              <Mail className="w-5 h-5 text-amber-500" />
+              <span className="font-medium">sigraves@hotmail.com</span>
+              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sandragraves/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-amber-100/80 hover:text-amber-300 transition-colors group"
+            >
+              <Linkedin className="w-5 h-5 text-amber-500" />
+              <span className="font-medium">linkedin.com/in/sandragraves</span>
+              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+            </a>
+            <div className="flex items-center gap-3 text-amber-100/50">
+              <MapPin className="w-5 h-5 text-amber-500" />
+              <span>San Antonio, TX</span>
+            </div>
+          </div>
+        </section>
+
+        <footer className="py-8 px-6 border-t border-white/5 text-center">
+          <p className="text-xs text-amber-100/30">
+            © 2027 Sandra Graves — UXExpertise.com — Play My Thinking™
+          </p>
+        </footer>
+      </main>
+
+      {/* ════════════════════════════════════════════════
+          ACTIVE CARD OVERLAY
+          ════════════════════════════════════════════════ */}
+      {activeCard && activeDeck && (
+        <>
+          <PlayCardView
+            card={activeCard}
+            index={currentCardIndex}
+            onClose={handleCloseCard}
+          />
+          {/* Navigation between cards in the deck */}
+          <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-4 pb-4 pointer-events-none">
+            <div className="flex items-center gap-3 bg-black/60 backdrop-blur-sm rounded-full px-5 py-2.5 pointer-events-auto border border-white/10">
+              <button
+                onClick={handlePrevCard}
+                disabled={currentCardIndex === 0}
+                className="text-amber-100/60 hover:text-amber-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+              >
+                ← Prev
+              </button>
+              <span className="text-xs text-amber-100/40 font-medium">
+                {activeDeck.symbol} {currentCardIndex + 1} / {drawnCards.length}
+              </span>
+              <button
+                onClick={handleNextCard}
+                disabled={currentCardIndex === drawnCards.length - 1}
+                className="text-amber-100/60 hover:text-amber-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+              >
+                Next →
+              </button>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Home;
