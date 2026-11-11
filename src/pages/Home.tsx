@@ -246,8 +246,11 @@ const Home = () => {
             <h2 className="text-2xl font-bold text-gray-900">Let's Connect</h2>
           </div>
           <p className="text-gray-600 mb-8 max-w-xl">
-            Whether you're improving an experience, modernizing services, or exploring
-            Human-Centered AI — I'd welcome the opportunity to connect.
+            <span className="block text-gray-900 font-bold text-lg mb-2">
+              What If You&rsquo;re Solving the Wrong Problem?
+            </span>
+            That&rsquo;s where I come in. I challenge assumptions, uncover what matters, and connect
+            research, strategy, and human-centered thinking to decisions that move experiences forward.
           </p>
           <div className="space-y-4">
             <a
