@@ -45,8 +45,8 @@ export const suitSymbolMap: Record<Suit, string> = {
 };
 
 export const suitColorMap: Record<Suit, string> = {
-  diamonds: '#e11d48',
-  hearts: '#dc2626',
+  diamonds: '#dc2626',
+  hearts: '#ea580c',
   clubs: '#0f766e',
   spades: '#1e293b',
 };
