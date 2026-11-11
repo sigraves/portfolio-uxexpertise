@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { decks } from '../cards/deckData';
 import type { Deck, PlayCard } from '../cards/types';
 import DeckStack from '../cards/DeckStack';
@@ -7,6 +8,7 @@ import NavBar from '../components/NavBar';
 import { ArrowRight, Mail, Linkedin, MapPin, FileText, Layers } from 'lucide-react';
 
 const Home = () => {
+  const navigate = useNavigate();
   const [drawnCards, setDrawnCards] = useState<PlayCard[]>([]);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
@@ -199,14 +201,23 @@ const Home = () => {
           </p>
           <div className="grid sm:grid-cols-3 gap-5">
             {[
-              { label: 'WarU', desc: 'Organizational transformation', color: '#8B1A3A' },
-              { label: 'Energy Provider', desc: 'Product strategy & CX', color: '#059669' },
-              { label: 'UTSA', desc: 'UX education & mentorship', color: '#f97316' },
+              { label: 'WarU', desc: 'Organizational transformation', color: '#8B1A3A', href: '/waru' },
+              { label: 'Energy Provider', desc: 'Product strategy & CX', color: '#059669', href: null },
+              { label: 'UTSA', desc: 'UX education & mentorship', color: '#f97316', href: null },
             ].map((item) => (
               <div
                 key={item.label}
-                className="group rounded-xl p-5 transition-all duration-200 hover:shadow-lg"
+                onClick={() => item.href && navigate(item.href)}
+                className={`group rounded-xl p-5 transition-all duration-200 hover:shadow-lg ${item.href ? 'cursor-pointer hover:-translate-y-0.5' : ''}`}
                 style={{ border: `3px solid ${item.color}`, backgroundColor: '#FFFFFF' }}
+                role={item.href ? 'link' : undefined}
+                tabIndex={item.href ? 0 : undefined}
+                onKeyDown={(e) => {
+                  if (item.href && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault();
+                    navigate(item.href);
+                  }
+                }}
               >
                 <div className="w-8 h-1.5 rounded-full mb-3" style={{ background: item.color }} />
                 <p className="font-bold text-gray-900 mb-1 group-hover:text-teal-700 transition-colors">
@@ -214,7 +225,7 @@ const Home = () => {
                 </p>
                 <p className="text-xs text-gray-500">{item.desc}</p>
                 <p className="text-xs text-gray-400 mt-3 italic">
-                  Content being migrated from the live site
+                  {item.href ? 'Click to explore the interactive experience' : 'Content being migrated from the live site'}
                 </p>
               </div>
             ))}
@@ -279,6 +290,11 @@ const Home = () => {
           onClose={handleCloseCard}
           onPrev={handlePrevCard}
           onNext={handleNextCard}
+          onExploreProject={
+            activeCard.projectRef?.includes('WarU')
+              ? () => navigate('/waru')
+              : undefined
+          }
         />
       )}
     </div>

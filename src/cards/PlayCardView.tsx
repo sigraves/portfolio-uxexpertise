@@ -10,9 +10,10 @@ interface Props {
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
+  onExploreProject?: () => void;
 }
 
-const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, onClose, onPrev, onNext }, ref) => {
+const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, onClose, onPrev, onNext, onExploreProject }, ref) => {
   const [flipped, setFlipped] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [revealedAnswer, setRevealedAnswer] = useState(false);
@@ -74,7 +75,11 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, total, on
   };
 
   const handleExploreProject = () => {
-    setShowProjectNotice(true);
+    if (onExploreProject) {
+      onExploreProject();
+    } else {
+      setShowProjectNotice(true);
+    }
   };
 
   return (
