@@ -8,6 +8,7 @@ import {
   GripVertical,
   Lightbulb,
   Sparkles,
+  Users,
 } from 'lucide-react';
 import FourQuadrant from './FourQuadrant';
 
@@ -506,9 +507,36 @@ const PrioritizationLab = () => {
       )}
 
       {/* Keyboard hint */}
-      <p className="text-center text-xs text-gray-400 mt-6 hidden sm:block">
+      <p className="text-center text-xs text-gray-400 mt-6 mb-6 hidden sm:block">
         Tab to navigate · Enter or Space to select a finding, then Enter to place · Enter on &ldquo;Reveal&rdquo; to see reasoning
       </p>
+
+      {/* How I Facilitate Workshops card */}
+      <div
+        className="rounded-2xl shadow-lg p-6 sm:p-8 animate-pmt-reveal"
+        style={{ backgroundColor: '#FFF6D5', border: '2px solid #E8D89A' }}
+      >
+        <div className="flex items-start gap-4">
+          <div
+            className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+            style={{ backgroundColor: '#E8D89A30' }}
+          >
+            <Users className="w-5 h-5" style={{ color: '#8B6914' }} />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider mb-2 text-gray-800">
+              How I Facilitate Workshops
+            </p>
+            <p className="text-sm sm:text-base text-gray-800 leading-relaxed">
+              One of my favorite ways to engage stakeholders and users is through interactive remote
+              workshops like this one. I create space for different perspectives, encourage participants
+              to challenge assumptions, and guide conversations without giving away the answers. The goal
+              isn&rsquo;t to make everyone think like me&mdash;it&rsquo;s to help teams think critically,
+              collaborate, and reach evidence-informed decisions together.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
