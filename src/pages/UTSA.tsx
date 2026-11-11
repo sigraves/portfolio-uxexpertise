@@ -201,9 +201,9 @@ const UTSA = () => {
                   </p>
                 </div>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  Students enter UX education with different strengths, learning speeds, confidence
-                  levels, and approaches to problem-solving. A one-size-fits-all teaching method cannot
-                  develop everyone&rsquo;s potential.
+                  Students from diverse backgrounds entered UX and development education with
+                  different abilities, confidence levels, and fears of making mistakes, often limiting
+                  their willingness to explore and learn.
                 </p>
               </div>
               <div>
@@ -216,9 +216,10 @@ const UTSA = () => {
                   </p>
                 </div>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  I combined years of professional UX experience, individualized mentorship, strategic
-                  questioning, patience, and encouragement to help students develop independent thinking,
-                  confidence, and career-ready skills.
+                  I combined active listening, personalized mentorship, and real-world experience to
+                  build students&rsquo; confidence, teach them to ask better questions, and embrace mistakes
+                  as learning opportunities&mdash;shifting their focus from fear of failure to a passion for
+                  solving real user problems.
                 </p>
               </div>
             </div>
