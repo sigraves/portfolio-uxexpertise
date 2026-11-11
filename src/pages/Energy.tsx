@@ -442,6 +442,42 @@ const Energy = () => {
               </div>
             </div>
           </div>
+
+          {/* Results & Lessons Learned */}
+          <div
+            className="rounded-2xl shadow-lg p-6 sm:p-8 mt-6 animate-pmt-reveal"
+            style={{ backgroundColor: '#FFF6D5', border: '2px solid #E8D89A' }}
+          >
+            <div className="flex items-start gap-4">
+              <div
+                className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                style={{ backgroundColor: '#E8D89A30' }}
+              >
+                <Zap className="w-5 h-5" style={{ color: '#8B6914' }} />
+              </div>
+              <div className="flex-1 space-y-3">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider mb-1 text-gray-800">
+                    Results
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-800 leading-relaxed">
+                    Gamification and bill-based reward points helped customers engage with energy-saving
+                    behaviors, better understand their electricity bills, and reduce their reliance on
+                    customer support.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider mb-1 text-gray-800">
+                    Lesson Learned
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-800 leading-relaxed">
+                    The strongest customer experiences connect behavioral motivation with practical
+                    benefits&mdash;helping customers save money while improving operational efficiency.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />

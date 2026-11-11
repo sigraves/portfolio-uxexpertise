@@ -603,6 +603,42 @@ const UTSA = () => {
             </div>
           </div>
 
+          {/* Results & Lessons Learned */}
+          <div
+            className="rounded-2xl shadow-lg p-6 sm:p-8 mb-6 animate-pmt-reveal"
+            style={{ backgroundColor: '#FFF6D5', border: '2px solid #E8D89A' }}
+          >
+            <div className="flex items-start gap-4">
+              <div
+                className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                style={{ backgroundColor: '#E8D89A30' }}
+              >
+                <GraduationCap className="w-5 h-5" style={{ color: '#8B6914' }} />
+              </div>
+              <div className="flex-1 space-y-3">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider mb-1 text-gray-800">
+                    Results
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-800 leading-relaxed">
+                    Guided students through the UX research and design process, from gathering data and
+                    developing Figma prototypes to usability testing and analyzing feedback. Students
+                    gained practical experience applying evidence to design decisions.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider mb-1 text-gray-800">
+                    Lesson Learned
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-800 leading-relaxed">
+                    Effective UX education builds independent thinkers who can investigate problems,
+                    validate assumptions, and improve solutions&mdash;not simply operate design tools.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Bottom navigation */}
           <div className="flex items-center justify-center gap-3">
             <button
