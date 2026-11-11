@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Home,
   Lightbulb,
   Zap,
   Check,
@@ -133,12 +132,11 @@ const Energy = () => {
             onClick={() => navigate('/')}
             className="flex items-center gap-2 text-sm font-bold text-gray-800 hover:text-teal-700 transition-colors"
           >
-            <Home className="w-4 h-4" />
+            <FourQuadrant size={16} />
             <span className="hidden sm:inline">Back to Portfolio</span>
             <span className="sm:hidden">Home</span>
           </button>
           <div className="flex items-center gap-2">
-            <FourQuadrant size={16} />
             <span className="text-xs font-bold uppercase tracking-wider text-[#059669]">
               Energy Company
             </span>

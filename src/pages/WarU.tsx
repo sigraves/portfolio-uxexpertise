@@ -6,7 +6,6 @@ import {
   ArrowRight,
   ArrowLeft,
   RotateCcw,
-  Home,
   Search,
   Users,
   Compass,
@@ -294,12 +293,11 @@ const WarU = () => {
             onClick={() => navigate('/')}
             className="flex items-center gap-2 text-sm font-bold text-gray-800 hover:text-teal-700 transition-colors"
           >
-            <Home className="w-4 h-4" />
+            <FourQuadrant size={16} />
             <span className="hidden sm:inline">Back to Portfolio</span>
             <span className="sm:hidden">Home</span>
           </button>
           <div className="flex items-center gap-2">
-            <FourQuadrant size={16} />
             <span className="text-xs font-bold uppercase tracking-wider text-[#8B1A3A]">
               WarU
             </span>
@@ -688,7 +686,7 @@ const WarU = () => {
                 onClick={() => navigate('/')}
                 className="flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-sm text-white bg-[#8B1A3A] hover:bg-[#8B1A3A]/90 transition-all shadow-md hover:shadow-lg w-full sm:w-auto justify-center"
               >
-                <Home className="w-4 h-4" />
+                <FourQuadrant size={16} />
                 Return to Portfolio
               </button>
               <button

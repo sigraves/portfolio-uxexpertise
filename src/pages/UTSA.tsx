@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Home,
   Lightbulb,
   Sprout,
   Lightbulb as Bulb,
@@ -156,12 +155,11 @@ const UTSA = () => {
             onClick={() => navigate('/')}
             className="flex items-center gap-2 text-sm font-bold text-gray-800 hover:text-teal-700 transition-colors"
           >
-            <Home className="w-4 h-4" />
+            <FourQuadrant size={16} />
             <span className="hidden sm:inline">Back to Portfolio</span>
             <span className="sm:hidden">Home</span>
           </button>
           <div className="flex items-center gap-2">
-            <FourQuadrant size={16} />
             <span className="text-xs font-bold uppercase tracking-wider text-[#f97316]">
               UTSA
             </span>
@@ -611,7 +609,7 @@ const UTSA = () => {
               onClick={() => navigate('/')}
               className="flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-sm text-white bg-[#f97316] hover:bg-[#f97316]/90 transition-all shadow-md hover:shadow-lg"
             >
-              <Home className="w-4 h-4" />
+              <FourQuadrant size={16} />
               Return to Portfolio
             </button>
           </div>
