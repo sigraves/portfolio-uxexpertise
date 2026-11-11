@@ -21,6 +21,7 @@ const discoverCards: PlayCard[] = [
     reasoning:
       'Server logs show WHERE users drop off, but not WHY. Surveys tell you what users say, not what they do. Sales hears from the loudest voices, not the most representative. A remote unmoderated test with just 5 users reveals the actual friction points — confusion, error messages, unexpected steps — and it is fast and affordable.',
     principle: 'Observe behavior before asking opinion. The smallest real test beats the largest secondhand report.',
+    projectRef: 'Case Study: WarU — Organizational Transformation',
   },
   {
     id: 'disc-2',
@@ -34,6 +35,7 @@ const discoverCards: PlayCard[] = [
     reasoning:
       'When users say "slow," they often mean "confusing." The perception of speed is tied to clarity, not just load time. I would run a task-based usability test to find where users hesitate, re-read, or backtrack. The "slowness" is likely cognitive load — too many decisions, unclear next steps, or information overload — not a performance issue.',
     principle: 'The words users choose are symptoms, not diagnoses. Always look for the problem behind the problem.',
+    projectRef: 'Case Study: WarU — Organizational Transformation',
   },
   {
     id: 'disc-3',
@@ -53,6 +55,7 @@ const discoverCards: PlayCard[] = [
     reasoning:
       'Neither stakeholders nor users have the full picture alone. The director has business context users do not see. Users have behavioral reality the director has not observed. The solution is not to pick a side — it is to bridge them with evidence. A phased approach respects the director\u2019s vision while letting user data guide prioritization.',
     principle: 'Your job is not to advocate for users or stakeholders. It is to bring evidence that helps both make better decisions.',
+    projectRef: 'Case Study: Energy Provider — Product Strategy',
   },
 ];
 
@@ -71,6 +74,7 @@ const interpretCards: PlayCard[] = [
     reasoning:
       'This is one of the most common patterns in UX research: users say one thing and do another. The interviews reveal aspirations — users want to feel capable. The usage data reveals reality — they are overwhelmed. The real insight is not "add more features" or "remove features." It is: "users want to feel successful, but the current experience makes them feel inadequate." The fix is simplification with progressive disclosure — not feature accumulation.',
     principle: 'When findings conflict, the conflict itself is the insight. Look for the deeper need that explains both data points.',
+    projectRef: 'Case Study: Energy Provider — Product Strategy',
   },
   {
     id: 'int-2',
@@ -90,6 +94,7 @@ const interpretCards: PlayCard[] = [
     reasoning:
       'Anomalies are not noise — they are edges of the data that reveal something about your sample, your product, or your assumptions. Two users feeling strongly about something means either: (1) a specific segment hits a path most users avoid, or (2) a problem is building that will affect more people over time. The right move is curiosity, not dismissal or overreaction.',
     principle: 'Outliers are questions, not answers. They tell you where to look next, not what to build.',
+    projectRef: 'Case Study: AI Single Moms — Empathy Research',
   },
   {
     id: 'int-3',
@@ -103,6 +108,7 @@ const interpretCards: PlayCard[] = [
     reasoning:
       'The original assumption was behavioral: "people need motivation to save energy." The research revealed an emotional barrier: "people feel stupid when they cannot understand their bill." This shifts the solution from gamification and reminders to clarity and empowerment. The strategy becomes: simplify the language, show progress in human terms, and remove the shame barrier. The insight moved the entire project from "push harder" to "remove the wall."',
     principle: 'The most valuable insights do not add information — they replace an assumption that was steering the project wrong.',
+    projectRef: 'Case Study: Energy Provider — Product Strategy',
   },
 ];
 
@@ -127,6 +133,7 @@ const decideCards: PlayCard[] = [
     reasoning:
       'In a resource-constrained environment, quick wins are not about cutting corners — they are about building credibility. Feature B ships fast, delivers measurable value, and creates evidence that the team can execute. That evidence becomes the trust you need to justify the larger investment in Feature A. Feature C needs research before it earns a roadmap slot. Sequence matters as much as priority.',
     principle: 'Prioritization is not about what is most important. It is about what unlocks the next decision.',
+    projectRef: 'Case Study: WarU — Organizational Transformation',
   },
   {
     id: 'dec-2',
@@ -140,6 +147,7 @@ const decideCards: PlayCard[] = [
     reasoning:
       'This is rarely a binary choice. The real question is: 80% of what? I would break the experience into core paths and secondary paths. If the core paths — the 3-4 things users do 80% of the time — are solid, launch. The secondary paths can iterate post-launch with real user data. Waiting for perfection means building assumptions, not solutions. But shipping broken core paths damages trust faster than a late launch.',
     principle: 'Do not ask "is it ready?" Ask "are the paths that matter most ready — and can we learn from the rest?"',
+    projectRef: 'Case Study: WarU — Organizational Transformation',
   },
   {
     id: 'dec-3',
@@ -159,6 +167,7 @@ const decideCards: PlayCard[] = [
     reasoning:
       'When everything is a priority, nothing is. But saying that to leadership feels like obstruction. Instead, bring structure: a simple 2x2 matrix of user value vs. business value, populated with whatever evidence exists. Then facilitate the conversation. The goal is not to make the decision for them — it is to make the trade-offs visible so the decision is informed, not political.',
     principle: 'You cannot make trade-off decisions for leaders. You can make the trade-offs visible enough that they make them well.',
+    projectRef: 'Case Study: UTSA — UX Education & Mentorship',
   },
 ];
 
@@ -177,6 +186,7 @@ const influenceCards: PlayCard[] = [
     reasoning:
       'The worst response is defensiveness. The VP is not attacking research — they are asserting their own expertise. I would acknowledge their experience, then reframe: "You are right that you know this organization better than anyone. What the research adds is not replacing your judgment — it is showing you what your customers see that you cannot." Then I would share one finding that contradicts the VP\u2019s assumption. Not to prove them wrong, but to demonstrate that research reveals blind spots, not obvious truths.',
     principle: 'Influence is not about being right. It is about making the other person curious enough to look again.',
+    projectRef: 'Case Study: WarU — Organizational Transformation',
   },
   {
     id: 'inf-2',
@@ -196,6 +206,7 @@ const influenceCards: PlayCard[] = [
     reasoning:
       'The problem is not length — it is format. Reports are monologues. Decisions are conversations. A workshop turns findings from a document into a shared experience. When stakeholders participate in sorting evidence and drawing conclusions, they own the insights. A report they read is information. A workshop they participate in is commitment. The format of delivery matters as much as the quality of the content.',
     principle: 'If you want findings to drive decisions, deliver them in the format decisions are made — a conversation, not a document.',
+    projectRef: 'Case Study: WarU — Organizational Transformation',
   },
   {
     id: 'inf-3',
@@ -209,6 +220,7 @@ const influenceCards: PlayCard[] = [
     reasoning:
       'Agreement is not ownership. The team agreed the insight mattered, but no one felt responsible for acting on it. Influence breaks down when insights are shared but not assigned. I would trace the gap: Was there a clear recommendation tied to the insight? Was there a decision-maker identified? Was there a next step with a deadline? Insights without ownership die in agreement. The fix is not better research — it is a clearer handoff: who decides, what they decide, and by when.',
     principle: 'An insight that everyone agrees with and no one acts on has zero value. Ownership is the last mile of research.',
+    projectRef: 'Case Study: UTSA — UX Education & Mentorship',
   },
 ];
 

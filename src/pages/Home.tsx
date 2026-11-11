@@ -7,23 +7,19 @@ import NavBar from '../components/NavBar';
 import { ArrowRight, Mail, Linkedin, MapPin, FileText, Layers } from 'lucide-react';
 
 const Home = () => {
-  const [activeDeck, setActiveDeck] = useState<Deck | null>(null);
   const [drawnCards, setDrawnCards] = useState<PlayCard[]>([]);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [viewMode, setViewMode] = useState<'table' | 'browse'>('table');
 
   useEffect(() => {
     document.title = 'UXExpertise 2027 — Play My Thinking';
   }, []);
 
   const handleDeckClick = (deck: Deck) => {
-    setActiveDeck(deck);
     setDrawnCards(deck.cards);
     setCurrentCardIndex(0);
   };
 
   const handleCloseCard = () => {
-    setActiveDeck(null);
     setDrawnCards([]);
     setCurrentCardIndex(0);
   };
@@ -116,7 +112,6 @@ const Home = () => {
           <div className="relative z-10 mt-10 sm:mt-14 text-center">
             <button
               onClick={() => {
-                setViewMode('browse');
                 document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="inline-flex items-center gap-2 text-xs sm:text-sm text-teal-700/50 hover:text-teal-700/90 transition-colors font-medium"
@@ -274,36 +269,15 @@ const Home = () => {
       {/* ════════════════════════════════════════════════
           ACTIVE CARD OVERLAY
           ════════════════════════════════════════════════ */}
-      {activeCard && activeDeck && (
-        <>
-          <PlayCardView
-            card={activeCard}
-            index={currentCardIndex}
-            onClose={handleCloseCard}
-          />
-          {/* Navigation between cards in the deck */}
-          <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-4 pb-4 pointer-events-none">
-            <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-5 py-2.5 pointer-events-auto border border-teal-900/10 shadow-lg">
-              <button
-                onClick={handlePrevCard}
-                disabled={currentCardIndex === 0}
-                className="text-gray-600 hover:text-teal-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
-              >
-                ← Prev
-              </button>
-              <span className="text-xs text-gray-500 font-medium">
-                {activeDeck.symbol} {currentCardIndex + 1} / {drawnCards.length}
-              </span>
-              <button
-                onClick={handleNextCard}
-                disabled={currentCardIndex === drawnCards.length - 1}
-                className="text-gray-600 hover:text-teal-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
-              >
-                Next →
-              </button>
-            </div>
-          </div>
-        </>
+      {activeCard && (
+        <PlayCardView
+          card={activeCard}
+          index={currentCardIndex}
+          total={drawnCards.length}
+          onClose={handleCloseCard}
+          onPrev={handlePrevCard}
+          onNext={handleNextCard}
+        />
       )}
     </div>
   );
