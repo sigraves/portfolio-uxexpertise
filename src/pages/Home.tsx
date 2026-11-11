@@ -150,7 +150,7 @@ const Home = () => {
               commendations, but what matters most to me is helping teams understand their users, make
               better decisions, and create experiences that work.
             </p>
-            <p>
+            <p className="font-bold text-gray-900">
               I follow three rules: evidence before opinion, context before solution, and collaboration
               before handoff.
             </p>
