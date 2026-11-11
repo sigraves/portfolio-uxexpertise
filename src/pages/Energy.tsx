@@ -178,8 +178,9 @@ const Energy = () => {
                   </p>
                 </div>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  Customers can encounter confusion, difficult choices, and unnecessary friction while
-                  navigating their service journey.
+                  The energy company needed to understand where customers experienced friction
+                  throughout their service journey and what was preventing a seamless customer
+                  experience.
                 </p>
               </div>
               <div>
@@ -192,8 +193,9 @@ const Energy = () => {
                   </p>
                 </div>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  I use UX research and strategic thinking to identify barriers, simplify interactions,
-                  and guide improvements toward a better customer experience.
+                  I conducted customer interviews, developed journey maps, and performed usability
+                  testing to uncover pain points and deliver actionable insights and recommendations
+                  that informed improvements to the customer experience.
                 </p>
               </div>
             </div>
