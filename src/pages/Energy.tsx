@@ -152,7 +152,7 @@ const Energy = () => {
           {/* Title block */}
           <div className="text-center mb-6 sm:mb-8 animate-pmt-reveal">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight">
-              Energy Company —{' '}
+              Energy Provider —{' '}
               <span className="whitespace-nowrap">Friction to Flow
                 <span className="text-[#059669] text-lg sm:text-xl align-top">™</span>
               </span>
