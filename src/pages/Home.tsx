@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import FourQuadrant from '../components/FourQuadrant';
 import { ArrowRight, Mail, Linkedin, MapPin, FileText, Layers, Briefcase, GraduationCap, Award } from 'lucide-react';
+import PrioritizationLab from '../components/PrioritizationLab';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -284,6 +285,11 @@ const Home = () => {
             ))}
           </div>
         </section>
+
+        {/* ════════════════════════════════════════════════
+            THE PRIORITIZATION LAB™
+            ════════════════════════════════════════════════ */}
+        <PrioritizationLab />
 
         {/* ════════════════════════════════════════════════
             CONTACT
