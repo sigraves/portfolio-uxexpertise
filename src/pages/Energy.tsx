@@ -152,11 +152,10 @@ const Energy = () => {
           {/* Title block */}
           <div className="text-center mb-6 sm:mb-8 animate-pmt-reveal">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight">
-              Energy Company — From
-              <br />
               <span className="whitespace-nowrap">Friction to Flow
                 <span className="text-[#059669] text-lg sm:text-xl align-top">™</span>
-              </span>
+              </span>{' '}
+              — Energy Company
             </h1>
             <p className="text-sm text-gray-500 mt-2 max-w-md mx-auto">
               Explore how customer friction can become a clearer, more confident experience.
