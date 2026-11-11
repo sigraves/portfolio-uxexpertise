@@ -83,7 +83,7 @@ const Energy = () => {
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = 'Energy Company — From Friction to Flow | UXExpertise';
+    document.title = 'Energy Provider — Friction to Flow | UXExpertise';
     return () => {
       document.title = 'UXExpertise — Play My Thinking';
     };
@@ -138,7 +138,7 @@ const Energy = () => {
           </button>
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#059669]">
-              Energy Company
+              Energy Provider
             </span>
             <span className="text-xs text-gray-400 hidden sm:inline">
               From Friction to Flow™
