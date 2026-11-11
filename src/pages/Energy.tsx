@@ -415,6 +415,32 @@ const Energy = () => {
           <p className="text-center text-xs text-gray-400 hidden sm:block">
             Tab to navigate · Enter or Space to select a touchpoint
           </p>
+
+          {/* Key Insight */}
+          <div
+            className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mt-8 animate-pmt-reveal"
+            style={{ border: '2px solid #05966930' }}
+          >
+            <div className="flex items-start gap-4">
+              <div
+                className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                style={{ background: '#05966910' }}
+              >
+                <Lightbulb className="w-5 h-5" style={{ color: '#059669' }} />
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#059669' }}>
+                  Key Insight
+                </p>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  &ldquo;Customer friction isn&rsquo;t always where organizations expect it to be. By listening
+                  to customers, mapping their journeys, and observing their interactions, I uncover gaps
+                  between business assumptions and actual experiences&mdash;turning research findings into
+                  insights that help clients prioritize meaningful improvements.&rdquo;
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />

@@ -579,6 +579,32 @@ const UTSA = () => {
             </p>
           </div>
 
+          {/* Key Insight */}
+          <div
+            className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-6 animate-pmt-reveal"
+            style={{ border: '2px solid #05966930' }}
+          >
+            <div className="flex items-start gap-4">
+              <div
+                className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                style={{ background: '#05966910' }}
+              >
+                <Lightbulb className="w-5 h-5" style={{ color: '#059669' }} />
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#059669' }}>
+                  Key Insight
+                </p>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  &ldquo;The most effective mentorship begins with listening, not teaching. When I helped
+                  students replace their fear of mistakes with curiosity about users, they developed the
+                  confidence to ask better questions, think independently, and approach UX and development
+                  with purpose and passion.&rdquo;
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Bottom navigation */}
           <div className="flex items-center justify-center gap-3">
             <button
