@@ -16,6 +16,8 @@ import {
   ChevronDown,
   Sparkles,
 } from 'lucide-react';
+import FourQuadrant from '../components/FourQuadrant';
+import Footer from '../components/Footer';
 
 type StudentId = 'careful' | 'creative' | 'fast' | 'doubting';
 
@@ -159,6 +161,7 @@ const UTSA = () => {
             <span className="sm:hidden">Home</span>
           </button>
           <div className="flex items-center gap-2">
+            <FourQuadrant size={16} />
             <span className="text-xs font-bold uppercase tracking-wider text-[#f97316]">
               UTSA
             </span>
@@ -592,6 +595,7 @@ const UTSA = () => {
           </p>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import FourQuadrant from './FourQuadrant';
 
 const navLinks = [
   { href: '#about', label: 'About Me' },
@@ -30,6 +31,7 @@ const NavBar = () => {
           className="flex items-center gap-2 text-sm font-bold tracking-tight text-gray-800 hover:text-teal-700 transition-colors"
         >
           <span className="hidden sm:inline">UXExpertise</span>
+          <FourQuadrant size={18} />
         </a>
 
         <div className="hidden md:flex items-center gap-6">

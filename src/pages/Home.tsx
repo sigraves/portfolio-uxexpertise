@@ -5,6 +5,8 @@ import type { Deck, PlayCard } from '../cards/types';
 import DeckStack from '../cards/DeckStack';
 import PlayCardView from '../cards/PlayCardView';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import FourQuadrant from '../components/FourQuadrant';
 import { ArrowRight, Mail, Linkedin, MapPin, FileText, Layers } from 'lucide-react';
 
 const Home = () => {
@@ -86,8 +88,9 @@ const Home = () => {
 
           {/* Title */}
           <div className="relative z-10 text-center mb-8 sm:mb-12 animate-pmt-reveal">
-            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-teal-700/60 mb-3">
+            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-teal-700/60 mb-3 flex items-center justify-center gap-2">
               UXExpertise
+              <FourQuadrant size={14} />
             </p>
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight leading-tight">
               Play My Thinking
@@ -272,11 +275,7 @@ const Home = () => {
           </div>
         </section>
 
-        <footer className="py-8 px-6 border-t border-teal-900/10 text-center">
-          <p className="text-xs text-gray-400">
-            © Sandra Graves — UXExpertise.com — Play My Thinking™
-          </p>
-        </footer>
+        <Footer />
       </main>
 
       {/* ════════════════════════════════════════════════

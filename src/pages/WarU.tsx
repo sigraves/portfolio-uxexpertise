@@ -15,6 +15,8 @@ import {
   Lightbulb,
   Sparkles,
 } from 'lucide-react';
+import FourQuadrant from '../components/FourQuadrant';
+import Footer from '../components/Footer';
 
 interface AssessmentOption {
   letter: string;
@@ -297,6 +299,7 @@ const WarU = () => {
             <span className="sm:hidden">Home</span>
           </button>
           <div className="flex items-center gap-2">
+            <FourQuadrant size={16} />
             <span className="text-xs font-bold uppercase tracking-wider text-[#8B1A3A]">
               WarU
             </span>
@@ -703,6 +706,7 @@ const WarU = () => {
           </div>
         )}
       </main>
+      <Footer />
     </div>
   );
 };
