@@ -257,7 +257,7 @@ const PlayCardView = forwardRef<HTMLDivElement, Props>(({ card, index, onClose }
         </button>
 
         {/* Card counter */}
-        <div className="text-center mt-4 text-white/40 text-xs font-medium">
+        <div className="text-center mt-4 text-gray-500 text-xs font-medium">
           Card {index + 1} · {card.rank}{symbol}
         </div>
       </div>

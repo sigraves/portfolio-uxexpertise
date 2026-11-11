@@ -43,10 +43,10 @@ const Home = () => {
   const activeCard = drawnCards[currentCardIndex] ?? null;
 
   return (
-    <div className="min-h-screen bg-[#0a1a14] text-amber-50">
+    <div className="min-h-screen bg-[#E9FAF3] text-gray-800">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-amber-400 focus:text-gray-900 focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-teal-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:shadow-lg"
       >
         Skip to main content
       </a>
@@ -66,7 +66,7 @@ const Home = () => {
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                className="absolute rounded-full bg-amber-200/20"
+                className="absolute rounded-full bg-teal-700/15"
                 style={{
                   left: `${10 + Math.random() * 80}%`,
                   bottom: '-10px',
@@ -81,21 +81,21 @@ const Home = () => {
 
           {/* Table center logo */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.04] select-none" aria-hidden="true">
-            <div className="text-[180px] sm:text-[280px] font-black text-amber-100 leading-none">
+            <div className="text-[180px] sm:text-[280px] font-black text-teal-800 leading-none">
               ♠♥♦♣
             </div>
           </div>
 
           {/* Title */}
           <div className="relative z-10 text-center mb-8 sm:mb-12 animate-pmt-reveal">
-            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-amber-300/60 mb-3">
+            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-teal-700/60 mb-3">
               UXExpertise 2027
             </p>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-amber-50 tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight leading-tight">
               Play My Thinking
-              <span className="text-amber-400 text-2xl sm:text-3xl align-top">™</span>
+              <span className="text-teal-600 text-2xl sm:text-3xl align-top">™</span>
             </h1>
-            <p className="text-sm sm:text-base text-amber-100/50 mt-4 max-w-md mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-600 mt-4 max-w-md mx-auto leading-relaxed">
               Draw a card. Explore a real UX challenge. Flip it to see how I think.
             </p>
           </div>
@@ -119,7 +119,7 @@ const Home = () => {
                 setViewMode('browse');
                 document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-2 text-xs sm:text-sm text-amber-200/40 hover:text-amber-200/80 transition-colors font-medium"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm text-teal-700/50 hover:text-teal-700/90 transition-colors font-medium"
             >
               <Layers className="w-4 h-4" />
               Prefer traditional navigation? Browse my work
@@ -132,12 +132,12 @@ const Home = () => {
             ════════════════════════════════════════════════ */}
         <section id="about" className="py-20 px-6 max-w-3xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center">
-              <span className="text-amber-400 text-lg font-bold">♦</span>
+            <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
+              <span className="text-teal-600 text-lg font-bold">♦</span>
             </div>
-            <h2 className="text-2xl font-bold text-amber-50">About Sandra</h2>
+            <h2 className="text-2xl font-bold text-gray-900">About Sandra</h2>
           </div>
-          <div className="space-y-4 text-amber-100/70 leading-relaxed">
+          <div className="space-y-4 text-gray-600 leading-relaxed">
             <p>
               I'm a UX strategist and researcher with 10+ years helping government organizations,
               educators, and multidisciplinary teams solve complex problems through evidence-based
@@ -148,7 +148,7 @@ const Home = () => {
               Human-Centered AI. I follow three rules: evidence before opinion, context before
               solution, collaboration before handoff.
             </p>
-            <p className="text-amber-200/80 font-semibold">
+            <p className="text-teal-700 font-semibold">
               I built this card experience because I believe the best way to understand how someone
               thinks is not to read their accomplishments — it is to work through a problem with
               them.
@@ -159,18 +159,18 @@ const Home = () => {
         {/* ════════════════════════════════════════════════
             RÉSUMÉ
             ════════════════════════════════════════════════ */}
-        <section id="resume" className="py-12 px-6 max-w-3xl mx-auto border-t border-white/5">
+        <section id="resume" className="py-12 px-6 max-w-3xl mx-auto border-t border-teal-900/10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center">
-              <FileText className="w-5 h-5 text-amber-400" />
+            <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
+              <FileText className="w-5 h-5 text-teal-600" />
             </div>
-            <h2 className="text-2xl font-bold text-amber-50">Résumé</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Résumé</h2>
           </div>
-          <p className="text-amber-100/60 text-sm">
+          <p className="text-gray-600 text-sm">
             Full résumé available on request.{' '}
             <a
               href="mailto:sigraves@hotmail.com"
-              className="text-amber-400 hover:text-amber-300 transition-colors font-medium"
+              className="text-teal-600 hover:text-teal-700 transition-colors font-medium"
             >
               Email me
             </a>{' '}
@@ -179,7 +179,7 @@ const Home = () => {
               href="https://www.linkedin.com/in/sandragraves/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-400 hover:text-amber-300 transition-colors font-medium"
+              className="text-teal-600 hover:text-teal-700 transition-colors font-medium"
             >
               LinkedIn
             </a>
@@ -190,14 +190,14 @@ const Home = () => {
         {/* ════════════════════════════════════════════════
             CASE STUDIES
             ════════════════════════════════════════════════ */}
-        <section id="case-studies" className="py-12 px-6 max-w-4xl mx-auto border-t border-white/5">
+        <section id="case-studies" className="py-12 px-6 max-w-4xl mx-auto border-t border-teal-900/10">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center">
-              <Layers className="w-5 h-5 text-amber-400" />
+            <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
+              <Layers className="w-5 h-5 text-teal-600" />
             </div>
-            <h2 className="text-2xl font-bold text-amber-50">Case Studies</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Case Studies</h2>
           </div>
-          <p className="text-amber-100/60 text-sm mb-6">
+          <p className="text-gray-600 text-sm mb-6">
             Traditional write-ups of my professional work. Each one will eventually connect to a
             card deck above.
           </p>
@@ -209,14 +209,14 @@ const Home = () => {
             ].map((item) => (
               <div
                 key={item.label}
-                className="group rounded-xl border border-white/10 bg-white/[0.02] p-5 hover:border-amber-500/30 transition-all duration-200"
+                className="group rounded-xl border border-teal-900/10 bg-white/50 p-5 hover:border-teal-500/40 transition-all duration-200"
               >
                 <div className="w-8 h-1 rounded-full mb-3" style={{ background: item.color }} />
-                <p className="font-bold text-amber-50 mb-1 group-hover:text-amber-300 transition-colors">
+                <p className="font-bold text-gray-900 mb-1 group-hover:text-teal-700 transition-colors">
                   {item.label}
                 </p>
-                <p className="text-xs text-amber-100/40">{item.desc}</p>
-                <p className="text-xs text-amber-200/30 mt-3 italic">
+                <p className="text-xs text-gray-500">{item.desc}</p>
+                <p className="text-xs text-gray-400 mt-3 italic">
                   Content being migrated from the live site
                 </p>
               </div>
@@ -227,23 +227,23 @@ const Home = () => {
         {/* ════════════════════════════════════════════════
             CONTACT
             ════════════════════════════════════════════════ */}
-        <section id="contact" className="py-20 px-6 max-w-3xl mx-auto border-t border-white/5">
+        <section id="contact" className="py-20 px-6 max-w-3xl mx-auto border-t border-teal-900/10">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center">
-              <span className="text-amber-400 text-lg font-bold">♠</span>
+            <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
+              <span className="text-teal-600 text-lg font-bold">♠</span>
             </div>
-            <h2 className="text-2xl font-bold text-amber-50">Let's Connect</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Let's Connect</h2>
           </div>
-          <p className="text-amber-100/60 mb-8 max-w-xl">
+          <p className="text-gray-600 mb-8 max-w-xl">
             Whether you're improving an experience, modernizing services, or exploring
             Human-Centered AI — I'd welcome the opportunity to connect.
           </p>
           <div className="space-y-4">
             <a
               href="mailto:sigraves@hotmail.com"
-              className="flex items-center gap-3 text-amber-100/80 hover:text-amber-300 transition-colors group"
+              className="flex items-center gap-3 text-gray-700 hover:text-teal-700 transition-colors group"
             >
-              <Mail className="w-5 h-5 text-amber-500" />
+              <Mail className="w-5 h-5 text-teal-600" />
               <span className="font-medium">sigraves@hotmail.com</span>
               <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
             </a>
@@ -251,21 +251,21 @@ const Home = () => {
               href="https://www.linkedin.com/in/sandragraves/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-amber-100/80 hover:text-amber-300 transition-colors group"
+              className="flex items-center gap-3 text-gray-700 hover:text-teal-700 transition-colors group"
             >
-              <Linkedin className="w-5 h-5 text-amber-500" />
+              <Linkedin className="w-5 h-5 text-teal-600" />
               <span className="font-medium">linkedin.com/in/sandragraves</span>
               <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
             </a>
-            <div className="flex items-center gap-3 text-amber-100/50">
-              <MapPin className="w-5 h-5 text-amber-500" />
+            <div className="flex items-center gap-3 text-gray-500">
+              <MapPin className="w-5 h-5 text-teal-600" />
               <span>San Antonio, TX</span>
             </div>
           </div>
         </section>
 
-        <footer className="py-8 px-6 border-t border-white/5 text-center">
-          <p className="text-xs text-amber-100/30">
+        <footer className="py-8 px-6 border-t border-teal-900/10 text-center">
+          <p className="text-xs text-gray-400">
             © 2027 Sandra Graves — UXExpertise.com — Play My Thinking™
           </p>
         </footer>
@@ -283,21 +283,21 @@ const Home = () => {
           />
           {/* Navigation between cards in the deck */}
           <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-4 pb-4 pointer-events-none">
-            <div className="flex items-center gap-3 bg-black/60 backdrop-blur-sm rounded-full px-5 py-2.5 pointer-events-auto border border-white/10">
+            <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-5 py-2.5 pointer-events-auto border border-teal-900/10 shadow-lg">
               <button
                 onClick={handlePrevCard}
                 disabled={currentCardIndex === 0}
-                className="text-amber-100/60 hover:text-amber-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+                className="text-gray-600 hover:text-teal-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
               >
                 ← Prev
               </button>
-              <span className="text-xs text-amber-100/40 font-medium">
+              <span className="text-xs text-gray-500 font-medium">
                 {activeDeck.symbol} {currentCardIndex + 1} / {drawnCards.length}
               </span>
               <button
                 onClick={handleNextCard}
                 disabled={currentCardIndex === drawnCards.length - 1}
-                className="text-amber-100/60 hover:text-amber-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+                className="text-gray-600 hover:text-teal-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
               >
                 Next →
               </button>

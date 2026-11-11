@@ -21,16 +21,16 @@ const NavBar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? 'bg-[#0a1a14]/90 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
+        scrolled ? 'bg-[#E9FAF3]/90 backdrop-blur-md border-b border-teal-900/10' : 'bg-transparent'
       }`}
     >
       <nav className="flex items-center justify-between px-5 sm:px-6 py-3" aria-label="Primary">
         <a
           href="/"
-          className="flex items-center gap-2 text-sm font-bold tracking-tight text-amber-50/90 hover:text-white transition-colors"
+          className="flex items-center gap-2 text-sm font-bold tracking-tight text-gray-800 hover:text-teal-700 transition-colors"
         >
           <span className="hidden sm:inline">UXExpertise</span>
-          <span className="text-amber-400">2027</span>
+          <span className="text-teal-600">2027</span>
         </a>
 
         <div className="hidden md:flex items-center gap-6">
@@ -38,7 +38,7 @@ const NavBar = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-amber-50/60 hover:text-white transition-colors duration-200"
+              className="text-sm font-medium text-gray-600 hover:text-teal-700 transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -46,23 +46,23 @@ const NavBar = () => {
         </div>
 
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+          className="md:hidden p-2 rounded-lg hover:bg-teal-900/5 transition-colors"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
           aria-expanded={open}
         >
-          {open ? <X size={20} className="text-amber-50" /> : <Menu size={20} className="text-amber-50" />}
+          {open ? <X size={20} className="text-gray-700" /> : <Menu size={20} className="text-gray-700" />}
         </button>
       </nav>
 
       {open && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[#0a1a14] border-b border-white/5">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-[#E9FAF3] border-b border-teal-900/10">
           <div className="px-6 py-4 space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block text-sm font-medium text-amber-50/70 hover:text-white transition-colors py-2"
+                className="block text-sm font-medium text-gray-700 hover:text-teal-700 transition-colors py-2"
                 onClick={() => setOpen(false)}
               >
                 {link.label}

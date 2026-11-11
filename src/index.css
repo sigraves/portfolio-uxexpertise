@@ -17,11 +17,11 @@ body {
 
 /* Felt table texture */
 .felt-table {
-  background-color: #0d4f3c;
+  background-color: #E9FAF3;
   background-image:
-    radial-gradient(ellipse at 50% 40%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
-    radial-gradient(circle at 20% 80%, rgba(0, 0, 0, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
+    radial-gradient(ellipse at 50% 40%, rgba(13, 79, 60, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(13, 79, 60, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(13, 79, 60, 0.03) 0%, transparent 50%);
 }
 
 /* 3D card flip */
