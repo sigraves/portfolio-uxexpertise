@@ -11,7 +11,7 @@ const Footer = () => {
         Sandra Graves — UX Researcher and Strategist
       </p>
       <p className="text-xs text-gray-400 mt-0.5">
-        © Sandra Graves — UXExpertise.com — Play My Thinking™
+        © UXExpertise.com — Play My Thinking™
       </p>
     </footer>
   );
