@@ -15,15 +15,67 @@ import {
   CheckSquare,
   Zap,
   Accessibility,
+  RotateCw,
+  ChevronDown,
+  PanelTop,
+  Expand,
+  GalleryHorizontalEnd,
+  Columns2,
+  LayoutGrid,
+  GitBranch,
+  KanbanSquare,
+  Table,
+  ListChecks,
+  Network,
+  Scale,
+  Map,
+  Route,
+  UserCircle,
+  FolderTree,
+  MonitorPlay,
+  StickyNote,
+  Workflow,
+  Hexagon,
+  Grid3x3,
+  SlidersHorizontal,
+  MoveHorizontal,
+  Gauge,
+  CalendarClock,
+  Shuffle,
+  Puzzle,
+  Swords,
+  Timer,
+  Dices,
+  Brain,
+  ListTodo,
+  ToggleLeft,
+  Terminal,
+  SearchCheck,
+  BadgeCheck,
+  Bell,
+  Undo2,
+  Loader,
+  GraduationCap,
+  Share2,
+  Box,
+  MousePointer2,
+  ScrollText,
+  Keyboard,
+  Eye,
+  Wind,
+  FormInput,
+  Sparkle,
 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import FourQuadrant from '../components/FourQuadrant';
 import { widgets, categories, getWidgetById, getCategoryById } from '../favorites/widgetData';
 import type { CategoryId } from '../favorites/widgetData';
 import { widgetDemos } from '../favorites/widgets';
+import WidgetPreview from '../favorites/WidgetPreview';
 
-const iconMap: Record<string, typeof Layers> = {
+const widgetIconMap: Record<string, LucideIcon> = {
   Layers,
   Target,
   Search,
@@ -32,7 +84,60 @@ const iconMap: Record<string, typeof Layers> = {
   CheckSquare,
   Zap,
   Accessibility,
+  RotateCw,
+  ChevronDown,
+  PanelTop,
+  Expand,
+  GalleryHorizontalEnd,
+  Columns2,
+  LayoutGrid,
+  GitBranch,
+  KanbanSquare,
+  Table,
+  ListChecks,
+  Network,
+  Scale,
+  Map,
+  Route,
+  UserCircle,
+  FolderTree,
+  MonitorPlay,
+  StickyNote,
+  Workflow,
+  Hexagon,
+  Grid3x3,
+  SlidersHorizontal,
+  MoveHorizontal,
+  Gauge,
+  CalendarClock,
+  Shuffle,
+  Puzzle,
+  Swords,
+  Timer,
+  Dices,
+  Brain,
+  Compass,
+  ListTodo,
+  ToggleLeft,
+  Terminal,
+  SearchCheck,
+  BadgeCheck,
+  Bell,
+  Undo2,
+  Loader,
+  GraduationCap,
+  Share2,
+  Box,
+  MousePointer2,
+  ScrollText,
+  Keyboard,
+  Eye,
+  Wind,
+  FormInput,
+  Sparkle,
 };
+
+const getWidgetIcon = (iconName: string): LucideIcon => widgetIconMap[iconName] || Sparkle;
 
 const FAVS_KEY = 'uxexpertise-favorites';
 
@@ -99,9 +204,10 @@ const MyFavorites = () => {
   }, [selectedWidget]);
 
   // Detail view
-  if (selectedWidget && DemoComponent) {
+  if (selectedWidget) {
     const cat = getCategoryById(selectedWidget.category)!;
     const isFav = favs.has(selectedWidget.id);
+    const WidgetIcon = getWidgetIcon(selectedWidget.icon);
     return (
       <div className="min-h-screen bg-[#E9FAF3] text-gray-800">
         <NavBar />
@@ -120,10 +226,7 @@ const MyFavorites = () => {
                 className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                 style={{ backgroundColor: `${cat.color}15` }}
               >
-                {(() => {
-                  const Icon = iconMap[cat.icon] || Layers;
-                  return <Icon className="w-6 h-6" style={{ color: cat.color }} />;
-                })()}
+                <WidgetIcon className="w-6 h-6" style={{ color: cat.color }} />
               </div>
               <div>
                 <h1 className="text-2xl font-black text-gray-900">{selectedWidget.name}</h1>
@@ -153,7 +256,18 @@ const MyFavorites = () => {
           {/* 1. Live Demo */}
           <Section number="1" title="Live Demo" color={cat.color}>
             <div className="rounded-2xl border-2 border-gray-200 bg-white p-6">
-              <DemoComponent />
+              {DemoComponent ? (
+                <DemoComponent />
+              ) : (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <WidgetIcon className="w-12 h-12 mb-3" style={{ color: cat.color }} />
+                  <p className="text-sm font-bold text-gray-700 mb-1">Interactive demo coming soon</p>
+                  <p className="text-xs text-gray-400 max-w-sm">
+                    The full interactive demonstration for {selectedWidget.name} is being built.
+                    The metadata, code, and all other sections are available below.
+                  </p>
+                </div>
+              )}
             </div>
           </Section>
 
@@ -249,6 +363,9 @@ const MyFavorites = () => {
   }
 
   // Gallery view
+  const totalCount = widgets.length;
+  const showingCount = filteredWidgets.length;
+
   return (
     <div className="min-h-screen bg-[#E9FAF3] text-gray-800">
       <NavBar />
@@ -275,6 +392,13 @@ const MyFavorites = () => {
             information into exploration, decisions, discovery, and meaningful engagement.
           </p>
         </div>
+
+        {/* Widget count */}
+        <p className="text-center text-sm font-bold text-gray-500 mb-6">
+          {activeCategory === 'all' && !search
+            ? `${totalCount} Interactive Experiences`
+            : `${showingCount} of ${totalCount} experiences`}
+        </p>
 
         {/* Search bar */}
         <div className="max-w-md mx-auto mb-6 relative">
@@ -313,15 +437,19 @@ const MyFavorites = () => {
             color="#ec4899"
             icon={<Heart className="w-3 h-3" fill="#ec4899" />}
           />
-          {categories.map((cat) => (
-            <FilterChip
-              key={cat.id}
-              label={cat.label}
-              active={activeCategory === cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              color={cat.color}
-            />
-          ))}
+          {categories.map((cat) => {
+            const catIcon = getWidgetIcon(cat.icon);
+            return (
+              <FilterChip
+                key={cat.id}
+                label={cat.label}
+                active={activeCategory === cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                color={cat.color}
+                icon={<catIcon className="w-3 h-3" />}
+              />
+            );
+          })}
         </div>
 
         {/* Gallery grid */}
@@ -338,19 +466,19 @@ const MyFavorites = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filteredWidgets.map((w) => {
               const cat = getCategoryById(w.category)!;
-              const CatIcon = iconMap[cat.icon] || Layers;
+              const WidgetIcon = getWidgetIcon(w.icon);
               const isFav = favs.has(w.id);
               return (
                 <div
                   key={w.id}
                   className="group rounded-2xl bg-white border-2 border-gray-200 p-5 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 animate-pmt-reveal"
                 >
-                  {/* Visual preview */}
+                  {/* Animated visual preview */}
                   <div
-                    className="w-full h-24 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-[1.02]"
+                    className="w-full h-24 rounded-xl flex items-center justify-center mb-4 overflow-hidden transition-transform group-hover:scale-[1.02]"
                     style={{ background: `linear-gradient(135deg, ${cat.color}10, ${cat.color}25)` }}
                   >
-                    <CatIcon className="w-10 h-10" style={{ color: cat.color }} />
+                    <WidgetPreview widgetId={w.id} color={cat.color} icon={WidgetIcon} />
                   </div>
 
                   {/* Category badge */}

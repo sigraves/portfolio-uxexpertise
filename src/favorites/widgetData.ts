@@ -19,6 +19,7 @@ export interface WidgetMeta {
   id: string;
   name: string;
   category: CategoryId;
+  icon: string;
   whyEngage: string;
   howItWorks: string[];
   uxValue: string;
@@ -39,11 +40,14 @@ export const categories: Category[] = [
   { id: 'accessibility', label: 'Accessibility', color: '#be185d', icon: 'Accessibility' },
 ];
 
+import { additionalWidgets } from './additionalWidgets';
+
 export const widgets: WidgetMeta[] = [
   {
     id: 'flip-cards',
     name: 'Flip Cards',
     category: 'cards-content',
+    icon: 'RotateCw',
     whyEngage:
       'Turn a card to discover hidden insights, answers, or a different perspective.',
     howItWorks: [
@@ -80,6 +84,7 @@ export const widgets: WidgetMeta[] = [
     id: 'accordions',
     name: 'Accordions',
     category: 'cards-content',
+    icon: 'ChevronDown',
     whyEngage:
       'Explore information at your own pace without being overwhelmed by everything at once.',
     howItWorks: [
@@ -113,6 +118,7 @@ export const widgets: WidgetMeta[] = [
     id: 'prioritization-hotspots',
     name: 'Prioritization Hotspots',
     category: 'cards-content',
+    icon: 'Target',
     whyEngage:
       'Select points of interest to uncover usability concerns, opportunities, and design priorities.',
     howItWorks: [
@@ -144,6 +150,7 @@ export const widgets: WidgetMeta[] = [
     id: 'interactive-tabs',
     name: 'Interactive Tabs',
     category: 'cards-content',
+    icon: 'PanelTop',
     whyEngage:
       'Switch between related views and discover different information without leaving the page.',
     howItWorks: [
@@ -181,6 +188,7 @@ export const widgets: WidgetMeta[] = [
     id: 'expandable-cards',
     name: 'Expandable Cards',
     category: 'cards-content',
+    icon: 'Expand',
     whyEngage:
       'Start with the essentials, then reveal deeper details whenever curiosity strikes.',
     howItWorks: [
@@ -213,6 +221,7 @@ export const widgets: WidgetMeta[] = [
     id: 'swipeable-card-deck',
     name: 'Swipeable Card Deck',
     category: 'cards-content',
+    icon: 'GalleryHorizontalEnd',
     whyEngage:
       'Browse ideas one card at a time, making exploration feel simple and focused.',
     howItWorks: [
@@ -244,6 +253,7 @@ export const widgets: WidgetMeta[] = [
     id: 'comparison-cards',
     name: 'Interactive Comparison Cards',
     category: 'cards-content',
+    icon: 'Columns2',
     whyEngage:
       'Compare alternatives side by side and discover which solution better meets your needs.',
     howItWorks: [
@@ -275,6 +285,7 @@ export const widgets: WidgetMeta[] = [
     id: 'impact-effort-matrix',
     name: 'Impact vs. Effort Matrix',
     category: 'ux-strategy',
+    icon: 'LayoutGrid',
     whyEngage:
       'Discover which ideas offer the greatest potential value relative to the work required.',
     howItWorks: [
@@ -305,6 +316,7 @@ export const widgets: WidgetMeta[] = [
   );
 };`,
   },
+  ...additionalWidgets,
 ];
 
 export const getWidgetById = (id: string): WidgetMeta | undefined =>
