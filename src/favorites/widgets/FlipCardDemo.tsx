@@ -86,9 +86,9 @@ const FlipCardDemo = () => {
                   toggleFlip(card.id);
                 }
               }}
-              className="card-3d cursor-pointer rounded-2xl h-48 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
+              className={`card-3d cursor-pointer rounded-2xl h-48 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${isFlipped ? 'card-flipped' : ''}`}
             >
-              <div className={`card-inner ${isFlipped ? 'card-flipped' : ''} rounded-2xl`}>
+              <div className="card-inner rounded-2xl">
                 <div
                   className="card-face card-front flex flex-col items-center justify-center gap-3 shadow-md"
                   style={{ background: `linear-gradient(135deg, ${card.front.color}15, ${card.front.color}30)` }}
