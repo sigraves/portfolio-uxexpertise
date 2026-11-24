@@ -81,6 +81,7 @@ const Energy = () => {
   const [activeTouchpoint, setActiveTouchpoint] = useState<TouchpointId>('highBill');
   const [improved, setImproved] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     document.title = 'Energy Provider — Friction to Flow | UXExpertise';
@@ -103,6 +104,10 @@ const Energy = () => {
   };
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     if (panelRef.current) {
       panelRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
